@@ -78,4 +78,4 @@ end
 ruby '2.1.5'
 
 # gem 'koala'
-# gem 'geocoder'
+gem 'geocoder'
