@@ -1,12 +1,16 @@
 <div id="header" class="container">
   <div class="row">
-    <div class="col-sm-3 logo_col">
+    <div class="col-sm-4 logo_col">
       <%= link_to root_path do %>
         <%= image_tag 'logos/header_logo.png', alt: 'Killer Green Radio' %>
       <% end %>
     </div><!-- col -->
-    <div class="col-sm-5"></div><!-- col -->
-    <div class="col-sm-3"></div><!-- col -->
+    <div class="col-sm-5 podcast_col">
+      <%= podloveaudio(src: asset_path('Midnight Blues bny Cherlene.mp3'), duration: '03:44', title: 'Midnight Blues') %>
+    </div><!-- col -->
+    <div class="col-sm-3">
+
+    </div><!-- col -->
   </div><!-- row -->
 </div>
 
