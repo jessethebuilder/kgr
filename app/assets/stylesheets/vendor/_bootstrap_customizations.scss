@@ -1,0 +1,30 @@
+/*-----------------------------------------------------------
+- #top_nav
+-----------------------------------------------------------*/
+
+//--------- #top_nav --------
+$navbar-padding-horizontal: 20px;
+$navbar-padding-vertical: 20px;
+$navbar-border-radius: 15px;
+$navbar-default-link-color: $font-dark;
+$navbar-default-link-hover-color: $link_hover_color;
+$font-family-base: 'Open Sans';
+$navbar-default-bg: white;
+$navbar-default-border: solid 2px $accent_light;
+
+#top_nav{
+  background-color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(rgb(202, 210, 211) 0%, rgb(154, 157, 158) 35%, rgb(202, 210, 211) 100%);
+  background-origin: padding-box;
+}
+
+#top_nav_body{
+  font-size: 20px;
+  text-shadow: $accent_light 1px 1px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  a:hover{
+    text-shadow: none;
+  }
+}
