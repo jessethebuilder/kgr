@@ -1,0 +1,55 @@
+<%= form_for(@dj) do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= error_explanation(@dj) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :name, class: 'control-label' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div><!-- col -->
+  </div><!-- row -->
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :bio, class: 'control-label' %>
+        <%= f.bootsy_area :bio, class: 'form-control' %>
+      </div>
+    </div><!-- col -->
+  </div><!-- row -->
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :short_bio, class: 'control-label' %>
+        <%= f.text_field :short_bio, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :keywords, class: 'control-label' %><small> separate with commas</small>
+        <%= f.text_area :keywords, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :headshot %>
+    <%= f.text_field :headshot %>
+  </div>
+  <div class="form-group">
+    <%= f.label :slider_image %>
+    <%= f.text_field :slider_image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

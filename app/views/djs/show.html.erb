@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dj.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @dj.bio %>
+</p>
+
+<p>
+  <strong>Short bio:</strong>
+  <%= @dj.short_bio %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @dj.keywords %>
+</p>
+
+<p>
+  <strong>Headshot:</strong>
+  <%= @dj.headshot %>
+</p>
+
+<p>
+  <strong>Slider image:</strong>
+  <%= @dj.slider_image %>
+</p>
+
+<%= link_to 'Edit', edit_dj_path(@dj) %> |
+<%= link_to 'Back', djs_path %>

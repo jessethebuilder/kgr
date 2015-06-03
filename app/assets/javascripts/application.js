@@ -16,4 +16,5 @@
 //= require bootstrap-datetimepicker.min
 //= require farm_tools
 //= require bootsy
+//= require vendor/jssor.slider.js
 //= require_tree .

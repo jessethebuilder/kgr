@@ -7,9 +7,8 @@ GIT
       rails
       sass-rails (~> 5.0.1)
 
-GIT
-  remote: https://github.com/jessethebuilder/farm_tools
-  revision: d1f0e7b7b6b115c1d356bd0adfbe79d8e415b371
+PATH
+  remote: C:/Users/Bucky/Desktop/jesseweb/farm_tools/farm_tools
   specs:
     farm_tools (0.0.3)
       geocoder

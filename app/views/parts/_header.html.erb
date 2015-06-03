@@ -1,9 +1,6 @@
 <style>
-  .podcast_col img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
+  .podcast_col iframe{
+    margin-top: 50px;
   }
 </style>
 
@@ -14,11 +11,11 @@
         <%= image_tag 'logos/header_logo.png', alt: 'Killer Green Radio' %>
       <% end %>
     </div><!-- col -->
-    <div class="col-sm-5 podcast_col">
-      <%= image_tag 'demo/player_slug.png', width: '320px' %>
+    <div class="col-sm-4 podcast_col">
+      <iframe frameborder='0' height='36px' scrolling='no' seamless src='https://simplecast.fm/e/12792?style=light' width='100%'></iframe>
       <%#= podloveaudio(src: asset_path('Midnight Blues bny Cherlene.mp3'), duration: '03:44', title: 'Midnight Blues') %>
     </div><!-- col -->
-    <div class="col-sm-3">
+    <div class="col-sm-4">
 
     </div><!-- col -->
   </div><!-- row -->
