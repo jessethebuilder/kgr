@@ -254,8 +254,6 @@ GEM
       shellany (~> 0.0)
     orm_adapter (0.5.0)
     pg (0.18.2-x64-mingw32)
-    podlove-web-player-rails (2.0.17)
-      railties (>= 3.2)
     pry (0.10.1-x64-mingw32)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -394,7 +392,6 @@ DEPENDENCIES
   mini_magick
   momentjs-rails (>= 2.9.0)
   pg
-  podlove-web-player-rails
   rails (= 4.2.1)
   rails_12factor
   rspec-rails

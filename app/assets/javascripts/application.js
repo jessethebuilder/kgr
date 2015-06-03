@@ -16,5 +16,4 @@
 //= require bootstrap-datetimepicker.min
 //= require farm_tools
 //= require bootsy
-//= require podlove-web-player-rails
 //= require_tree .

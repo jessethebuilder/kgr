@@ -1,3 +1,12 @@
+<style>
+  .podcast_col img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+</style>
+
 <div id="header" class="container">
   <div class="row">
     <div class="col-sm-4 logo_col">
@@ -6,7 +15,8 @@
       <% end %>
     </div><!-- col -->
     <div class="col-sm-5 podcast_col">
-      <%= podloveaudio(src: asset_path('Midnight Blues bny Cherlene.mp3'), duration: '03:44', title: 'Midnight Blues') %>
+      <%= image_tag 'demo/player_slug.png', width: '320px' %>
+      <%#= podloveaudio(src: asset_path('Midnight Blues bny Cherlene.mp3'), duration: '03:44', title: 'Midnight Blues') %>
     </div><!-- col -->
     <div class="col-sm-3">
 
@@ -17,3 +27,4 @@
 <script>
   raiseAndLowerElement('.logo_col img');
 </script>
+
