@@ -80,6 +80,8 @@ ruby '2.1.5'
 # gem 'koala'
 gem 'geocoder'
 
+gem "simple_calendar", "~> 1.1.0"
+
 
 # gem 'podlove-web-player-rails'
 # gem 'sass-css-importer'

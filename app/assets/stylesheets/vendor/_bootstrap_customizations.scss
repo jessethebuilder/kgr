@@ -3,6 +3,8 @@
 - #top_nav
 - Links
 - Text Blocks
+- Components
+ * .well
 -----------------------------------------------------------*/
 //---------- Globals -------
 $font-family-sans-serif: 'Open Sans';
@@ -54,3 +56,6 @@ h1{
   margin-bottom: 20px !important;
 
 }
+
+//------ Components ---
+$well-bg: $content_block_color;

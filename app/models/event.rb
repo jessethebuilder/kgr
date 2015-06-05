@@ -7,5 +7,5 @@ class Event < ActiveRecord::Base
 
   serialize :djs_attending, Array
 
-
+  mount_uploader :main_image, MainImageUploader
 end
