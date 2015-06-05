@@ -2,13 +2,7 @@
 <html>
 <head>
   <link rel="alternate" type="application/rss+xml" title="Killer Green Radio RSS" href="http://simplecast.fm/podcasts/1200/rss" />
-
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-
-  <%= csrf_meta_tags %>
-
-  <%= content_for :head_info %>
+  <%= render partial: 'parts/head' %>
 </head>
 <body>
 
@@ -16,6 +10,16 @@
   <%= render partial: 'parts/top_nav' %>
   <%= render partial: 'parts/the_flash' %>
 
-  <%= yield %>
+  <div class="container" id="content_container">
+    <div class="row">
+      <div class="col-md-9" id="main_content">
+        <%= yield %>
+      </div><!-- main_content -->
+
+      <div class="col-md-3" id="side_content">
+        <span width="260px">xxxdaffffffffffffffff</span>
+      </div><!-- side_content -->
+    </div><!-- content row -->
+  </div><!-- content_container -->
 </body>
 </html>

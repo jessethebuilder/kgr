@@ -13,10 +13,12 @@ class DjsController < ApplicationController
   # GET /djs/new
   def new
     @dj = Dj.new
+    render :new, :layout => 'admin_form'
   end
 
   # GET /djs/1/edit
   def edit
+    render :edit, :layout => 'admin_form'
   end
 
   # POST /djs
@@ -26,7 +28,7 @@ class DjsController < ApplicationController
     if @dj.save
       redirect_to @dj, notice: 'Dj was successfully created.'
     else
-      render :new
+      render :new, :layout => 'admin_form'
     end
   end
 
@@ -35,7 +37,7 @@ class DjsController < ApplicationController
     if @dj.update(dj_params)
       redirect_to @dj, notice: 'Dj was successfully updated.'
     else
-      render :edit
+      render :edit, :layout => 'admin_form'
     end
   end
 
@@ -53,6 +55,9 @@ class DjsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def dj_params
-      params.require(:dj).permit(:name, :bio, :short_bio, :keywords, :headshot, :slider_image)
+      params.require(:dj).permit(:name, :bio, :short_bio, :keywords, :tag_line,
+                                 :email, :facebook_url, :twitter_url,
+                                 :head_shot, :remote_head_shot_url, :head_shot_cache,
+                                 :slider_image, :remote_slider_image_url, :slider_image_cache)
     end
 end

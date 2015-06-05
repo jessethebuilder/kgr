@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="alternate" type="application/rss+xml" title="Killer Green Radio RSS" href="http://simplecast.fm/podcasts/1200/rss" />
+  <%= render partial: 'parts/head' %>
+</head>
+<body>
+
+<%= render partial: 'parts/header' %>
+<%= render partial: 'parts/top_nav' %>
+<%= render partial: 'parts/the_flash' %>
+
+<div class="container" id="content_container">
+  <%= yield %>
+</div><!-- content_container -->
+</body>
+</html>

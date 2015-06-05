@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :djs
   devise_for :users
   root 'pages#home'

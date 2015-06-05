@@ -34,8 +34,8 @@ group :doc do
 end
 
 
-# gem 'farm_tools', :git => 'https://github.com/jessethebuilder/farm_tools'
-gem 'farm_tools', :path => 'C:\Users\Bucky\Desktop\jesseweb\farm_tools\farm_tools'
+gem 'farm_tools', :git => 'https://github.com/jessethebuilder/farm_tools'
+# gem 'farm_tools', :path => 'C:\Users\Bucky\Desktop\jesseweb\farm_tools\farm_tools'
 gem 'twitter_express', :git => 'https://github.com/jessethebuilder/TwitterExpress'
 # gem 'twitter_express', :path => 'C:\Users\Bucky\Desktop\jesseweb\twitterexpress\twitterexpress'
 
@@ -44,7 +44,7 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'devise'
 
 gem 'carrierwave'
-gem 'fog'
+# gem 'fog'
 gem 'bootsy'
 gem 'mini_magick'
 

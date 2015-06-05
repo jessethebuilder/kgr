@@ -1,3 +1,39 @@
-@import url('http://fonts.googleapis.com/css?family=Play');
+/*-----------------------------------
+- Font Imports
+- Typography Classes
+- Links
+-----------------------------------*/
 
+//---- Font Imports-----
+@import url('http://fonts.googleapis.com/css?family=Play');
 @import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
+//----- Classes
+@mixin title_font{
+  font-weight: 600;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+@mixin tag_line_font{
+  font-size: 16px;
+  font-weight: 600;
+  color: $accent_light;
+}
+
+//------ Links -----
+//h3{
+//  a{
+//    color: rgb(255, 204, 0);
+//    cursor: auto;
+//    display: inline;
+//    font-family: 'Open Sans';
+//    font-weight: bold;
+//    letter-spacing: -1px;
+//    line-height: 14px;
+//    text-align: left;
+//    text-decoration: none;
+//    text-transform: uppercase;
+//  }
+//}
+

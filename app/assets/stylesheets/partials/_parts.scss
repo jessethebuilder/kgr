@@ -1,6 +1,7 @@
 /*-------------------------------------------------
 - #header
 - #top_nav
+- The Flash
 -------------------------------------------------*/
 
 //------ #header ------
@@ -21,4 +22,17 @@
   }
 }
 
-//------ #top_nav ----
+//------ The Flash ----
+.flash {
+  padding-top: 5px;
+}
+
+div.flash.notice{
+  background-color: rgba($alert-warning-bg, .90);
+}
+
+div.flash.alert{
+  background-color: rgba($alert-danger-bg, .90);
+}
+
+//------ #the_flash -----

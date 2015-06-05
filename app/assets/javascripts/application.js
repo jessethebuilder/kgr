@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require moment
+//= require bootstrap
 //= require bootstrap-datetimepicker.min
 //= require farm_tools
 //= require bootsy
-//= require vendor/jssor.slider.js
+
+//= require djs
 //= require_tree .

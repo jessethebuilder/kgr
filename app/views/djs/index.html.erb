@@ -1,37 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div id="djs" class="block_list">
+  <h1>Our DJs</h1>
+  <% @djs.in_groups_of(2) do |dj_group| %>
+    <div class="row list_row">
+      <% dj_group.each do |dj| %>
+        <div class="col-md-6 list_col">
+          <% if dj -%>
+            <div class="list_item">
+              <div class="image_cell">
+                <%= image_tag dj.head_shot.url(:medium), class: 'featured_image' %>
+              </div>
 
-<h1>Listing Djs</h1>
+              <div class="info_cell">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Bio</th>
-      <th>Short bio</th>
-      <th>Keywords</th>
-      <th>Headshot</th>
-      <th>Slider image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                <div class="info">
+                  <div class="title">
+                    <%= link_to dj.name, dj %>
 
-  <tbody>
-    <% @djs.each do |dj| %>
-      <tr>
-        <td><%= dj.name %></td>
-        <td><%= dj.bio %></td>
-        <td><%= dj.short_bio %></td>
-        <td><%= dj.keywords %></td>
-        <td><%= dj.headshot %></td>
-        <td><%= dj.slider_image %></td>
-        <td><%= link_to 'Show', dj %></td>
-        <td><%= link_to 'Edit', edit_dj_path(dj) %></td>
-        <td><%= link_to 'Destroy', dj, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                  </div>
 
-<br>
+                  <div class="tag_line">
+                    <%= dj.tag_line %>
+                  </div>
 
-<%= link_to 'New Dj', new_dj_path %>
+                  <div class="description">
+                    <%= dj.short_bio.to_s %>
+                  </div>
+
+                  <hr>
+
+                  <div class="social_networking_links">
+                    <%= link_to dj.facebook_url, target: '_blank' do %>
+                      <%= image_tag 'social_networking/small_facebook.png' %>
+                    <% end if dj.facebook_url %>
+
+                    <%= link_to dj.twitter_url, target: '_blank' do %>
+                      <%= image_tag 'social_networking/twitter_small.png' %>
+                    <% end if dj.twitter_url %>
+
+                    <%= mail_to dj.email, target: '_blank' do %>
+                      <%= image_tag 'social_networking/small_mail.png' %>
+                    <% end if dj.email %>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          <% end -%>
+
+          <!--<div class="clearfix"></div>-->
+
+        </div><!-- col -->
+      <% end %>
+    </div><!-- row -->
+  <% end %><!-- groups -->
+</div>
+
+<script>
+  raiseAndLowerElement('.social_networking_links img');
+</script>

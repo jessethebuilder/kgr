@@ -1,6 +1,11 @@
 /*-----------------------------------------------------------
+- Globals
 - #top_nav
+- Links
+- Text Blocks
 -----------------------------------------------------------*/
+//---------- Globals -------
+$font-family-sans-serif: 'Open Sans';
 
 //--------- #top_nav --------
 $navbar-padding-horizontal: 20px;
@@ -8,9 +13,9 @@ $navbar-padding-vertical: 20px;
 $navbar-border-radius: 15px;
 $navbar-default-link-color: $font-dark;
 $navbar-default-link-hover-color: $link_hover_color;
-$font-family-base: 'Open Sans';
 $navbar-default-bg: white;
 $navbar-default-border: solid 2px $accent_light;
+$navbar-default-brand-hover-color: white;
 
 #top_nav{
   background-color: rgba(0, 0, 0, 0);
@@ -27,4 +32,25 @@ $navbar-default-border: solid 2px $accent_light;
   a:hover{
     text-shadow: none;
   }
+}
+
+//------- Links ----
+$link-color: $link_color;
+
+a:hover{
+  text-decoration: none !important;
+}
+a:visited{
+  text-decoration: none !important;
+}
+
+//-------- Text Blocks -----
+$font-size-h1: 72px;
+h1{
+  color: $accent_light !important;
+  font-weight: 800 !important;
+  border-bottom: 4px solid $content_block_color;
+  text-shadow: 2px 2px $content_block_color;
+  margin-bottom: 20px !important;
+
 }
