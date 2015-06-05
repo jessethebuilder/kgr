@@ -55,6 +55,10 @@
   <% end %><!-- groups -->
 </div>
 
+<% content_for :side_bar do %>
+  <%= render :partial => 'events/embedded_monthly' %>
+<% end %>
+
 <script>
   raiseAndLowerElement('.social_networking_links img');
 </script>

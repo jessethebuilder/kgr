@@ -4,6 +4,7 @@ class DjsController < ApplicationController
   # GET /djs
   def index
     @djs = Dj.all
+    @calendar_events = Event.all
   end
 
   # GET /djs/1

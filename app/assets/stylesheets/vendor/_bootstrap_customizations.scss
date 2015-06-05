@@ -16,7 +16,7 @@ $navbar-border-radius: 15px;
 $navbar-default-link-color: $font-dark;
 $navbar-default-link-hover-color: $link_hover_color;
 $navbar-default-bg: white;
-$navbar-default-border: solid 2px $accent_light;
+$navbar-default-border: solid 2px $font_light;
 $navbar-default-brand-hover-color: white;
 
 #top_nav{
@@ -27,7 +27,7 @@ $navbar-default-brand-hover-color: white;
 
 #top_nav_body{
   font-size: 20px;
-  text-shadow: $accent_light 1px 1px 0px;
+  text-shadow: $font_light 1px 1px 0px;
   text-transform: uppercase;
   font-weight: bold;
 
@@ -47,15 +47,6 @@ a:visited{
 }
 
 //-------- Text Blocks -----
-$font-size-h1: 72px;
-h1{
-  color: $accent_light !important;
-  font-weight: 800 !important;
-  border-bottom: 4px solid $content_block_color;
-  text-shadow: 2px 2px $content_block_color;
-  margin-bottom: 20px !important;
-
-}
 
 //------ Components ---
 $well-bg: $content_block_color;

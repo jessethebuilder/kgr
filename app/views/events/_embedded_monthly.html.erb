@@ -1,0 +1,32 @@
+<div id="embedded_monthly_widget">
+  <h3>Events!</h3>
+  <div class="calendar_body">
+    <%= month_calendar(events: @calendar_events) do |date, events| %>
+      <%= content_tag :div, class: "calendar_date#{' has_event' if events.count > 0}" do %>
+        <%= date.strftime('%e') %>
+      <% end %>
+
+      <% events.each do |e| -%>
+        <li class="calendar_event">
+          <%= e.starts_at.strftime('%B %e @ %l:%M%p') %> -
+          <%= link_to e.name, e %>
+        </li>
+      <% end -%>
+    <% end %>
+  </div>
+
+  <div id="event_list_container">
+    <ul class="event_list">
+
+      <script>
+        if($('.calendar_event').length > 0) {
+          $('.calendar_event').appendTo('.event_list');
+        } else {
+          $('#event_list_container').detach();
+        }
+      </script>
+    </ul>
+  </div>
+</div>
+
+

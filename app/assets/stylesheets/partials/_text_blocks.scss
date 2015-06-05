@@ -1,6 +1,23 @@
-h3{
-  letter-spacing: 0.01em;
-  font-weight: 600;
-  font-family: 'Open Sans';
-  text-transform: uppercase;
+h1{
+  font-size: 72px;
+  color: $font_light !important;
+  font-weight: 800 !important;
+  border-bottom: 4px solid $content_block_color;
+  text-shadow: 2px 2px $content_block_color;
+  margin-bottom: 20px !important;
 }
+
+h3{
+  font-size: 48px;
+  color: $font_light;
+  font-weight: 600;
+  text-shadow: 1px 1px $font_dark;
+  border-bottom: 2px solid $content_block_color;
+}
+
+//h3{
+//  letter-spacing: 0.01em;
+//  font-weight: 600;
+//  font-family: 'Open Sans';
+//  text-transform: uppercase;
+//}

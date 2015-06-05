@@ -1,0 +1,95 @@
+/*-------------------------------------------------
+- Simple Calendar
+  * #embedded_monthly
+    +  .calendar-header
+    +  Calendar Body
+    +  .calendar_events
+--------------------------------------------------*/
+
+//---- Embedded Monthly (events/_embedded_monthly) --
+#embedded_monthly_widget{
+  .calendar_body{
+    background-color: $content_block_color;
+    padding: 5px;
+    border-radius: 10px;
+
+    .calendar-header{
+      font-size: 36px;
+      color: $font_light;
+      font-weight: 600;
+      text-shadow: 1px 1px $font_dark;
+      text-align: center;
+      width: 100%;
+
+
+      span{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      a{
+        // these are the next and previous month selectors
+        font-size: 48px;
+        color: $bright_accent;
+      }
+    }
+
+    //-- Calendar Body --
+    table{
+      width: 100%;
+      padding: 5px;
+      color: $font_light;
+
+      td{
+        padding: 3px;
+        //      border: 1px solid $font_medium;
+      }
+
+      .next-month{
+        color: $font_medium;
+      }
+
+      .prev-month{
+        color: $font_medium;
+      }
+
+      .has_event{
+        color: $bright_accent;
+      }
+
+    }
+
+    //---- Calendar Events ----
+  }// #.calendar_body
+
+  #event_list_container{
+
+    margin-top: 5px;
+    background-color: $content_block_color;
+    border-radius: 10px;
+
+    .event_list{
+      color: $font_light;
+      list-style: none;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      .calendar_event{
+        font-size: 14px;
+
+        a{
+          color: $bright_accent;
+        }
+        a:hover{
+          color: $link_color;
+        }
+      }
+
+
+    }
+  }// #event_list_container
+
+
+}// #embedded_monthly_widget
