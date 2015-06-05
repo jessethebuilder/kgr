@@ -73,6 +73,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'faker'
 end
 
 ruby '2.1.5'
