@@ -23,7 +23,7 @@
   }
 
   .list_col{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .list_item{
@@ -65,6 +65,8 @@
 
       hr{
         border-color: $content_block_color;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
 
       .description{

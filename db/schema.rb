@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605003838) do
+ActiveRecord::Schema.define(version: 20150606222030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,13 +65,13 @@ ActiveRecord::Schema.define(version: 20150605003838) do
     t.string   "short_bio"
     t.text     "keywords"
     t.string   "head_shot"
-    t.string   "slider_image"
     t.string   "slug"
     t.string   "tag_line"
     t.string   "facebook_url"
     t.string   "twitter_url"
     t.string   "email"
     t.string   "phone"
+    t.integer  "show_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20150605003838) do
     t.datetime "start_time"
     t.string   "main_image"
     t.text     "djs_attending", default: "--- []\n"
+    t.string   "slug"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
@@ -117,6 +118,22 @@ ActiveRecord::Schema.define(version: 20150605003838) do
     t.datetime "updated_at",                               null: false
     t.string   "slug"
     t.text     "excerpt"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "slider_panels", force: :cascade do |t|
+    t.string   "image"
+    t.string   "slider_text"
+    t.integer  "slider_includeable_id"
+    t.string   "slider_includeable_type"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "social_networking_profiles", force: :cascade do |t|

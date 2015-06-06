@@ -4,8 +4,5 @@ class Dj < ActiveRecord::Base
 
   use_farm_slugs
 
-  validates :tag_line, presence: true
-
   mount_uploader :head_shot, HeadShotUploader
-  mount_uploader :slider_image, SliderImageUploader
 end

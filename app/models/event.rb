@@ -3,7 +3,10 @@ class Event < ActiveRecord::Base
   extend SimpleCalendar
   has_calendar
 
-  validates :name, presence: true
+  has_one :address, as: :has_address
+  accepts_nested_attributes_for :address
+
+  use_farm_slugs
 
   validates :start_time, presence: true
 

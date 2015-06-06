@@ -6,12 +6,15 @@
 
 </style>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <%= express_carousel [image_path('demo/player_slug.png'), image_path('backgrounds/fm3_background.jpg')] %>
+
+
+<% content_for :top_banner do %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= express_carousel [image_path('demo/player_slug.png'), image_path('backgrounds/fm3_background.jpg')] %>
+      </div>
     </div>
   </div>
-</div>
-
+<% end %>
 

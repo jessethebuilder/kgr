@@ -9,7 +9,7 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'Associations' do
-
+    it{ should have_one :address }
   end
 
   describe 'Attributes' do
