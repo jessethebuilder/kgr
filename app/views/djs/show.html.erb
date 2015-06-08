@@ -1,32 +1,8 @@
-<p>
-  <strong>Name:</strong>
-  <%= @dj.name %>
-</p>
+<div id="dj" class="content_b">
+  <h1><%= link_to @dj.name, @dj %></h1>
+  <%= @calendar_events.inspect %>
+</div>
 
-<p>
-  <strong>Bio:</strong>
-  <%= @dj.bio %>
-</p>
-
-<p>
-  <strong>Short bio:</strong>
-  <%= @dj.short_bio %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <%= @dj.keywords %>
-</p>
-
-<p>
-  <strong>Head shot:</strong>
-  <%= @dj.head_shot %>
-</p>
-
-<p>
-  <strong>Slider image:</strong>
-  <%= @dj.slider_image %>
-</p>
-
-<%= link_to 'Edit', edit_dj_path(@dj) %> |
-<%= link_to 'Back', djs_path %>
+<% content_for :side_bar do %>
+  <%= render :partial => 'events/embedded_monthly' %>
+<% end %>

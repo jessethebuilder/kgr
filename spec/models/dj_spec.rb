@@ -5,4 +5,8 @@ RSpec.describe Dj, type: :model do
     it{ should validate_presence_of :name }
 
   end
+
+  describe 'Associations' do
+    it{ should have_one :show }
+  end
 end

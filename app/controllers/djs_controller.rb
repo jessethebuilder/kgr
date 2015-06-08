@@ -9,6 +9,10 @@ class DjsController < ApplicationController
 
   # GET /djs/1
   def show
+    #todo Optimize
+    arr = []
+    Event.all.each{ |e| arr << e if e.djs_attending.include?(@dj.to_param) }
+    @calendar_events = arr
   end
 
   # GET /djs/new
@@ -58,6 +62,8 @@ class DjsController < ApplicationController
     def dj_params
       params.require(:dj).permit(:name, :bio, :short_bio, :keywords, :tag_line,
                                  :email, :facebook_url, :twitter_url,
+                                 {:show_attributes => [:name, :description]},
+                                 :bootsy_image_gallery_id,
                                  :head_shot, :remote_head_shot_url, :head_shot_cache,
                                  :slider_image, :remote_slider_image_url, :slider_image_cache)
     end

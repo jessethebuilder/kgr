@@ -6,6 +6,5 @@ FactoryGirl.define do
 
   factory :dj do
     name Faker::Name.name
-    tag_line Faker::Company.catch_phrase
   end
 end

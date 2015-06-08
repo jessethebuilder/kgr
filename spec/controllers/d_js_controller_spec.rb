@@ -50,6 +50,16 @@ RSpec.describe DjsController, type: :controller do
       get :show, {:id => dj.to_param}, valid_session
       expect(assigns(:dj)).to eq(dj)
     end
+
+    it "assigns any Events the DJ is attending to @calendar_events" do
+      dj = Dj.create! valid_attributes
+      e1 = create :event
+      e1.djs_attending << dj.to_param
+      e1.save
+
+      get :show, {:id => dj.to_param}, valid_session
+      expect(assigns(:calendar_events)).to eq([e1])
+    end
   end
 
   describe "GET #new" do

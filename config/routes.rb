@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/contact_us'
 
+  resources :news_stories
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

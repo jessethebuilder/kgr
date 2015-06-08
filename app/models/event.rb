@@ -14,6 +14,10 @@ class Event < ActiveRecord::Base
 
   mount_uploader :main_image, MainImageUploader
 
+  after_initialize do
+    build_address if address.nil?
+  end
+
   def starts_at
     start_time
   end

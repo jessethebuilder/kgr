@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :get_all_djs, only: [:new, :edit, :update, :create]
+  # before_action :process_djs_attending, only: [:create, :update]
 
   # GET /events
   def index
@@ -19,6 +21,8 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     render :edit, :layout => 'admin_form'
+
+    # POST /events
   end
 
   # POST /events
@@ -53,9 +57,23 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def get_all_djs
+      @djs = Dj.all
+    end
+
+    def process_djs_attending
+      djs = params[:djs_attending]
+      @event.djs_attending = djs
+    end
+
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:name, :description, :keywords, :start_time, :djs_attending,
-                                    :main_image, :remote_main_image_url, :main_image_cache)
+      params.require(:event).permit(:name, :description, :keywords, :start_time, {:djs_attending => []},
+                                    :facebook_event_link,
+                                    :bootsy_image_gallery_id,
+                                    :main_image, :remote_main_image_url, :main_image_cache,
+                                    :address_attributes => [:label, :street, :street2, :city, :state, :zip]
+
+      )
     end
 end

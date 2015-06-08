@@ -52,42 +52,50 @@
     <%= image_select(f, :head_shot, version: :small) %><!-- row -->
   </div>
 
-  <div class="well">
-    <%= image_select(f, :slider_image, version: :small) %><!-- row -->
-  </div>
+  <!--<div class="well">-->
+    <%#= image_select(f, :slider_image, version: :small) %><!-- row -->
+  <!--</div>-->
 
 
   <div class="row">
+    <div id="show_information_col" class="col-sm-8">
+      <h3>Show Information</h3>
+
+      <%= render partial: 'shows/embedded_form', locals: {form_builder: f} %>
+    </div><!-- col -->
+
     <div class="col-sm-4">
+      <h3>Options</h3>
       <div class="form-group">
         <%= f.label :email, class: 'control-label' %>
         <%= f.text_field :email, class: 'form-control' %>
       </div>
-    </div><!-- col -->
 
-    <div class="col-sm-4">
+      <div class="form-group">
+        <%= f.label :phone, class: 'control-label' %><small> this will not appear on public-facing pages</small>
+        <%= f.phone_field :phone, class: 'form-control' %>
+      </div>
+
       <div class="form-group">
         <%= f.label :facebook_url, class: 'control-label' %>
         <%= f.text_field :facebook_url, class: 'form-control' %>
       </div>
-    </div><!-- col -->
 
-    <div class="col-sm-4">
       <div class="form-group">
         <%= f.label :twitter_url, class: 'control-label' %>
         <%= f.text_field :twitter_url, class: 'form-control' %>
       </div>
     </div><!-- col -->
+
+    <!--<div class="col-sm-4">-->
+    <!--</div>&lt;!&ndash; col &ndash;&gt;-->
   </div><!-- row -->
 
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="form-group">
-        <%= f.label :phone, class: 'control-label' %><small> this will not appear on public-facing pages</small>
-        <%= f.phone_field :phone, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
+  <!--<div class="row">-->
+    <!--<div class="col-sm-4">-->
+<!---->
+    <!--</div>-->
+  <!--</div>-->
 
   <div class="row">
     <div class="col-sm-12">

@@ -1,0 +1,27 @@
+<%= form_builder.fields_for(:address) do |address_fields| %>
+  <div class="form-group">
+    <%= address_fields.label :label, 'Name of location', class: 'control-label' %>
+    <%= address_fields.text_field :label, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= address_fields.label :street, class: 'control-label' %>
+    <%= address_fields.text_field :street, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= address_fields.label :street2, class: 'control-label' %>
+    <%= address_fields.text_field :street2, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= address_fields.label :city, class: 'control-label' %>
+    <%= address_fields.text_field :city, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= address_fields.label :state, class: 'control-label' %>
+    <%= address_fields.select :state, hash_for_select(Address::STATE_HASH), {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= address_fields.label :zip, class: 'control-label' %>
+    <%= address_fields.text_field :zip, class: 'form-control' %>
+  </div>
+<% end %>

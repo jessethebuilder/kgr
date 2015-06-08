@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 20150606222030) do
     t.string   "twitter_url"
     t.string   "email"
     t.string   "phone"
-    t.integer  "show_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -82,10 +81,11 @@ ActiveRecord::Schema.define(version: 20150606222030) do
     t.text     "keywords"
     t.datetime "start_time"
     t.string   "main_image"
-    t.text     "djs_attending", default: "--- []\n"
+    t.text     "djs_attending",       default: "--- []\n"
+    t.string   "facebook_event_link"
     t.string   "slug"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "farm_notes", force: :cascade do |t|
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150606222030) do
   create_table "shows", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "dj_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
