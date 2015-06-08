@@ -7,11 +7,11 @@ class NewsStoriesController < ApplicationController
 
   before_action :set_news_story, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html, :js
+  respond_to :html
 
   def index
     @news_stories = NewsStory.all
-    respond_with(@news_stories)
+    render :index, layout: 'admin_form'
   end
 
   def show
@@ -21,7 +21,6 @@ class NewsStoriesController < ApplicationController
   def new
     @news_story = NewsStory.new
     render :new, :layout => 'admin_form'
-
   end
 
   def edit

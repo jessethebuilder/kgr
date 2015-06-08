@@ -7,4 +7,8 @@ FactoryGirl.define do
   factory :dj do
     name Faker::Name.name
   end
+
+  factory :news_story do
+    title Faker::Company.bs.titlecase
+  end
 end
