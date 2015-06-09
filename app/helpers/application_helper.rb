@@ -5,4 +5,8 @@ module ApplicationHelper
 
   include SaveDraftArchiveDeleteHelper
 
+  def user_is_admin?
+    true
+  end
+
 end

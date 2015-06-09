@@ -101,6 +101,8 @@
     <div class="col-sm-12">
       <div class="form-group">
         <%= f.submit class: 'btn btn-primary' %>
+
+        <%= link_to 'Delete', @dj, method: :delete, class: 'btn btn-danger' unless @dj.new_record? %>
       </div>
     </div><!-- col -->
   </div><!-- row -->

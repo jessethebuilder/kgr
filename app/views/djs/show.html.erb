@@ -1,8 +1,32 @@
-<div id="dj" class="content_b">
-  <h1><%= link_to @dj.name, @dj %></h1>
-  <%= @calendar_events.inspect %>
+<%= quick_options ['Edit', edit_dj_path(@dj)] if user_is_admin? %>
+
+<div id="dj" class="article">
+
+  <h1>
+    <%= @dj.name%>
+    <div class="pull-right">
+      <%= render partial: 'social_networking_links', locals: {:dj => @dj} %>
+    </div>
+  </h1>
+
+
+  <div class="article_content">
+    <%= image_tag @dj.head_shot.url(:medium), class: 'head_shot pull-left' %>
+    <% unless @dj.show.nil? -%>
+      <h4><small>Host of </small><%= @dj.show.name.to_s %></h4>
+      <well>
+        <%= @dj.show.description.to_s.html_safe %>
+      </well>
+      <h4>Bio</h4>
+      <%= @dj.bio.to_s.html_safe %>
+    <% end -%>
+  </div>
 </div>
 
 <% content_for :side_bar do %>
   <%= render :partial => 'events/embedded_monthly' %>
 <% end %>
+
+<script>
+  raiseAndLowerElement('.social_networking_links img');
+</script>
