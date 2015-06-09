@@ -29,3 +29,14 @@ end
 
   e.save!
 end
+
+20.times do
+  n = NewsStory.new title: Faker::Company.catch_phrase.titlecase,
+                   content: Faker::Lorem.paragraphs(paragraph_count = Random.rand(1..20)),
+                   excerpt: Faker::Lorem.sentences(sentence_count = Random.rand(1..10))
+
+  fn = File.join(Rails.root, 'app/assets/images/demo', "slider_img#{Random.rand(1..3)}.jpg")
+  n.main_news_story_image = File.new(fn)
+
+  n.save!
+end

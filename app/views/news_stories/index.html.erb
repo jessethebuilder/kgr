@@ -7,7 +7,6 @@
         <th>Excerpt</th>
         <th>Main Image</th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
 
@@ -18,9 +17,7 @@
           <td><%= ns.publication_status.titlecase %></td>
           <td><%= ns.excerpt.to_s %></td>
           <td><%= image_tag ns.main_news_story_image.url(:thumb) %></td>
-          <td><%= link_to 'view', ns %></td>
-          <td><%= link_to 'delete', ns, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+          <td><%= link_to 'view', ns, target: '_blank' %></td>
         </tr>
       <% end -%>
     </tbody>
