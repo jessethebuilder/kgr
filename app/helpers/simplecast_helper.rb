@@ -4,24 +4,29 @@ require 'json'
 module SimplecastHelper
   SIMPLECAST_ID = '1200'
 
-  def simplecast_episodes
-    # RestClient.get("#{url_base}/#{SIMPLECAST_ID}/episodes.json", auth_params)
-    RestClient.get("#{url_base}/#{SIMPLECAST_ID}/episodes.json?api_key=#{ENV['SIMPLECAST_API_KEY']}")
-
+  def simplecast_episode_list
+    JSON.parse(episode_list_json)
   end
 
   def simplecast_episode(episode_id)
-    RestClient.get("#{url_base}/podcasts/#{SIMPLECAST_ID}/episodes/#{episode_id}.json", auth_params)
-
+    JSON.parse(episode_json(episode_id))
   end
 
   private
 
   def url_base
-    "https://api.simplecast.fm/v1"
+    "https://api.simplecast.fm/v1/podcasts/"
   end
 
   def auth_params
-    {'u' => ENV['SIMPLECAST_API_KEY']}
+    "api_key=#{ENV['SIMPLECAST_API_KEY']}"
+  end
+
+  def episode_list_json
+    RestClient.get("#{url_base}#{SIMPLECAST_ID}/episodes.json?#{auth_params}")
+  end
+
+  def episode_json(episode_id)
+    RestClient.get("#{url_base}#{SIMPLECAST_ID}/episodes/#{episode_id}.json?#{auth_params}")
   end
 end

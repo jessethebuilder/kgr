@@ -12,7 +12,7 @@ class Event < ActiveRecord::Base
 
   serialize :djs_attending, Array
 
-  mount_uploader :main_image, MainImageUploader
+  mount_uploader :main_image, MainImageUploader, dependent: :destroy
 
   after_initialize do
     build_address if address.nil?

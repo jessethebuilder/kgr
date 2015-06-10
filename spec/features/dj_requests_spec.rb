@@ -36,4 +36,6 @@ describe 'Dj Requests' do
       Dj.last.show.name.should == 'Test Show Name'
     end
   end  #Dj Creation
+
+
 end

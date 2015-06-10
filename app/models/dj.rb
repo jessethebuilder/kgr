@@ -2,6 +2,8 @@ class Dj < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   include Bootsy::Container
 
+  belongs_to :user
+
   has_one :show
   accepts_nested_attributes_for :show
 
@@ -11,5 +13,24 @@ class Dj < ActiveRecord::Base
 
   use_farm_slugs
 
-  mount_uploader :head_shot, HeadShotUploader
+  validates :email, presence: true
+
+  mount_uploader :head_shot, HeadShotUploader, dependent: :destroy
+
+  before_save :find_or_build_user, on: :create
+
+  private
+
+  def find_or_build_user
+    u = find_user || create_user
+    self.user = u
+  end
+
+  def find_user
+    User.where(:email => email).first
+  end
+
+  def build_user
+    User.new(email: email, password: Random.rand(100000000..1000000000000000000).to_s)
+  end
 end

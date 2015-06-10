@@ -44,7 +44,7 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 gem 'devise'
 
 gem 'carrierwave'
-# gem 'fog'
+gem 'fog'
 gem 'bootsy'
 gem 'mini_magick'
 

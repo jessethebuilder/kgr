@@ -21,6 +21,10 @@
       <%= @dj.bio.to_s.html_safe %>
     <% end -%>
   </div>
+
+  <div class="facebook_comments">
+    <%= facebook_comments(dj_path(@dj)) %>
+  </div>
 </div>
 
 <% content_for :side_bar do %>
