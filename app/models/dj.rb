@@ -19,6 +19,13 @@ class Dj < ActiveRecord::Base
 
   before_save :find_or_build_user, on: :create
 
+  #------------------ Methods ----------------------------
+
+  def facebook_page
+    /(https:\/\/)?www\.facebook\.com\\(.*)/ =~ facebook_url
+    $2
+  end
+
   private
 
   def find_or_build_user

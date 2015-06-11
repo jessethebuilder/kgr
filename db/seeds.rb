@@ -1,10 +1,12 @@
 10.times do
   d = Dj.new :name => Faker::Name.name, :email => Faker::Internet.email, :tag_line => Faker::Company.catch_phrase,
-             :twitter_url => 'xxx@twitter.com', facebook_url: 'xxx@facebook.com',
              short_bio: Faker::Lorem.sentences(sentence_count = Random.rand(1..3)).join('. '),
              bio: Faker::Lorem.paragraphs(paragraph_count = Random.rand(1..20)).join('<br>')
 
-  fn = File.join(Rails.root, 'app/assets/images/demo', "user_sample#{Random.rand(1..2)}.jpg")
+  d.twitter_url = "www.twitter.com/#{d.name.parameterize}"
+  d.facebook_url = "www.facebook.com/#{d.name.parameterize}"
+
+    fn = File.join(Rails.root, 'app/assets/images/demo', "user_sample#{Random.rand(1..2)}.jpg")
   d.head_shot = File.new(fn)
 
   d.show = Show.new :name => Faker::Company.catch_phrase.titlecase, :description => Faker::Lorem.sentences(sentence_count = Random.rand(1..10)).join('. ')

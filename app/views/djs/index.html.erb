@@ -1,4 +1,6 @@
 <div id="djs" class="block_list">
+  <%= quick_options(['New', new_dj_path]) if user_is_admin? %>
+
   <h1>Our DJs</h1>
   <% @djs.in_groups_of(2) do |dj_group| %>
     <div class="row list_row">

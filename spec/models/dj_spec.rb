@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Dj, type: :model do
+  let(:dj){ build :dj }
+
   describe 'Validations' do
     it{ should validate_presence_of :name }
     it{ should validate_presence_of :email}
@@ -27,6 +29,25 @@ RSpec.describe Dj, type: :model do
         dj = create(:dj, email: test_email)
 
         dj.user.should == u
+      end
+    end
+  end
+
+  describe 'Methods' do
+    describe '#facebook_page' do
+      it 'should return the name of the facebook page from :facebook_url' do
+        dj.facebook_url = 'https://www.facebook.com/thetestuser'
+        dj.facebook_page.should == 'thetestuser'
+      end
+
+      it 'should work even if the "http:// is omitted' do
+        dj.facebook_url = 'www.facebook.com/anothertestuser'
+        dj.facebook_page.should == 'anothertestuser'
+      end
+
+      it 'should return nil if :facebook_url is nil' do
+        dj.facebook_url.should == nil
+        dj.facebook_page.should == nil
       end
     end
   end

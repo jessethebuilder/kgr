@@ -1,3 +1,9 @@
+<% head_info(@dj.name, @dj.short_bio, @dj.head_shot.url, 'profile', 'http://www.killergreenradio.com',
+             dj_url(@dj), keywords: @dj.keywords, additional_meta_tags: {'fb:profile' => @dj.facebook_page}) %>
+
+<h1><%= @dj.facebook_page.inspect %></h1>
+
+
 <%= quick_options ['Edit', edit_dj_path(@dj)] if user_is_admin? %>
 
 <div id="dj" class="article">
@@ -31,7 +37,6 @@
   <%= render :partial => 'events/embedded_monthly' %>
 <% end %>
 
-<% head_info(@dj.name, @dj.short_bio, @dj.head_shot.url, 'article', 'www.killergreenradio.com', dj_url(@dj), keywords: @dj.keywords) %>
 
 <script>
   raiseAndLowerElement('.social_networking_links img');
