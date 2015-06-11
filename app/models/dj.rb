@@ -22,7 +22,7 @@ class Dj < ActiveRecord::Base
   private
 
   def find_or_build_user
-    u = find_user || create_user
+    u = find_user || build_user
     self.user = u
   end
 

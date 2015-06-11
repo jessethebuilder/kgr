@@ -1,19 +1,40 @@
+
+
+<div id="news_stories" class="article_list">
+  <% @news_stories.each do |n| -%>
+
+  <% end -%>
+</div>
+
+
 <% head_info('Killer Green Radio', 'Killer Green Radio Home Page', image_url('logos/header_logo.png'),
              'music.radio_station', 'killergreenradio.com', root_url, :facebook_app_id => FB_APP_ID) %>
 
 <% content_for :top_banner do %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= express_carousel [image_path('demo/player_slug.png'), image_path('backgrounds/fm3_background.jpg')] %>
+  <div id="like_and_follow_buttons" class="container">
+    <div class="follow_button">
+      <!--<div class="fb-like" data-href="https://www.facebook.com/pages/Killer-Green-Radio/862349183856059" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>-->
+      <%= follow_on_facebook_button(FB_APP_PAGE, :layout => 'button') %>
+    </div>
+
+    <div class="follow_button">
+      <div class="follow_on_twitter_button">
+        <%= follow_on_twitter_button(TWITTER_FANPAGE, :include_script => true) %>
       </div>
     </div>
   </div>
+
+  <!--<div class="container">-->
+    <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+        <%#= express_carousel [image_path('demo/player_slug.png'), image_path('backgrounds/fm3_background.jpg')] %>
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 <% end %>
 
 <% content_for :side_bar do %>
   <%= render :partial => 'events/embedded_monthly' %>
 
-  <%#= render :partial => 'devise/sessions/new' %>
 <% end %>
 

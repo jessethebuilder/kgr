@@ -15,10 +15,12 @@ describe 'Dj Requests' do
     let(:name){ 'Test Name' }
     let(:description){ Faker::Lorem.paragraphs(paragraph_count = Random.rand(1..20)).join('<br><br>') }
     let(:keywords){ Faker::Lorem.words(num = Random.rand(1..1000)).join(', ') }
+    let(:email){ Faker::Internet.email }
 
     def min
       visit "/djs/new"
       fill_in 'dj_name', with: name
+      fill_in 'Email', with: email
     end
 
     specify 'saves with the minimum params' do

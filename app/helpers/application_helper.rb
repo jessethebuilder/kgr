@@ -2,6 +2,7 @@ module ApplicationHelper
   include FarmTools
   include FarmTools::ErrorsHelper
   include FarmTools::FacebookHelper
+  include FarmTools::TwitterHelper
 
   include SaveDraftArchiveDeleteHelper
 

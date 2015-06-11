@@ -2,6 +2,7 @@
 - Slider
 - .block_list
 - .article
+- .article_list
 - .social_networking_links
 -------------------------------------------------*/
 
@@ -102,6 +103,12 @@
 //    margin-bottom: 10px;
   }
 } // .article
+
+.article_list{
+  .article_summary{
+
+  }
+} // .article_list
 
 
 .social_networking_links{

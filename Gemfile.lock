@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/jessethebuilder/farm_tools
-  revision: 1d84ff691b53c54e9be8625ada5c34ee5a7f5894
+  revision: 74b8e33eedd6278a9615c5fb6a9d31593522d7cb
   specs:
     farm_tools (0.0.3)
       geocoder

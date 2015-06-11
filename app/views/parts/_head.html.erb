@@ -3,7 +3,7 @@
 <%= stylesheet_link_tag    'application', media: 'all' %>
 <%= javascript_include_tag 'application' %>
 
-<%= facebook_sdk FB_APP_ID %>
+<%= facebook_sdk FB_APP_ID, use_authentication: false %>
 
 <%= csrf_meta_tags %>
 

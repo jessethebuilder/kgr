@@ -31,6 +31,8 @@
   <%= render :partial => 'events/embedded_monthly' %>
 <% end %>
 
+<% head_info(@dj.name, @dj.short_bio, @dj.head_shot.url, 'article', 'www.killergreenradio.com', dj_url(@dj), keywords: @dj.keywords) %>
+
 <script>
   raiseAndLowerElement('.social_networking_links img');
 </script>
