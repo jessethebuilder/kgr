@@ -22,7 +22,7 @@ class Dj < ActiveRecord::Base
   #------------------ Methods ----------------------------
 
   def facebook_page
-    /(https:\/\/)?www\.facebook\.com\\(.*)/ =~ facebook_url
+    /(https:\/\/)?www\.facebook\.com\/(.*)/ =~ facebook_url
     $2
   end
 

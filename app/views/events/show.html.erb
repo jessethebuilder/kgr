@@ -1,1 +1,16 @@
-<%# head_info(@event.name, @event.description, ) %>
+
+
+<% head_info(@event.name, @event.description, @event.main_image.url, 'article', 'Killer Green Radio', event_path(@event),
+             keywords: @event.keywords) %>
+
+<%= quick_options ['Edit', edit_event_path(@event)] %>
+
+<div id="event" class="article">
+  <h1><%= @event.name %></h1>
+
+  <div class="article_content">
+    <%= image_tag @event.main_image.url(:large), class: 'article_banner_image' %>
+
+  </div>
+</div>
+
