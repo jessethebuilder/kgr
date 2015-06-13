@@ -1,9 +1,9 @@
 /*-------------------------------------------------
-- Simple Calendar
-  * #embedded_monthly
-    +  .calendar-header
-    +  Calendar Body
-    +  .calendar_events
+- #embedded_monthly
+  *  .calendar-header
+  *  Calendar Body
+  *  .calendar_events
+- #full_calendar
 --------------------------------------------------*/
 
 //---- Embedded Monthly (events/_embedded_monthly) --
@@ -68,28 +68,69 @@
     background-color: $content_block_color;
     border-radius: 10px;
 
-    .event_list{
-      color: $font_light;
-      list-style: none;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 10px;
-      padding-bottom: 10px;
 
-      .calendar_event{
-        font-size: 14px;
-
-        a{
-          color: $bright_accent;
-        }
-        a:hover{
-          color: $link_color;
-        }
-      }
-
-
-    }
   }// #event_list_container
 
 
 }// #embedded_monthly_widget
+
+.event_list{
+  color: $font_light;
+  list-style: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .calendar_event{
+    font-size: 14px;
+
+    a{
+      color: $bright_accent;
+    }
+    a:hover{
+      color: $link_color;
+    }
+  }
+
+
+} // .event_list
+
+#full_calendar{
+  background-color: $content_block_color;
+  color: $font_light;
+  padding: 30px;
+  border-radius: 15px;
+
+  .calendar-header{
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    span{
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  }
+
+  table{
+    width: 100%;
+
+    td.day{
+      border: 1px solid $font_dark;
+
+      .calendar_date{
+        min-height: 100px;
+
+      }
+
+    }
+
+    td.next-month, td.prev-month{
+      background-color: $contrast_block_color;
+    }
+  }
+
+
+
+} //  #full_sized_calendar

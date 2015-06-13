@@ -9,7 +9,7 @@ RSpec.describe PagesController, type: :controller do
     end
 
     describe 'News Stories' do
-      it "should assign all PUBLISHED NewsStories to @news_story" do
+      it "should assign PUBLISHED NewsStories to @news_story" do
         ns_published = build(:news_story)
         ns_published.publish
         ns_published.save!
@@ -20,6 +20,15 @@ RSpec.describe PagesController, type: :controller do
 
         assigns(:news_stories).include?(ns_published).should == true
         assigns(:news_stories).include?(ns_draft).should == false
+      end
+
+      it 'should assign only the first 6 published news stories' do
+        7.times do
+          create(:news_story, published: true)
+        end
+
+        get :home
+        assigns(:news_stories).count.should == 6
       end
     end
   end

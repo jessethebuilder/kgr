@@ -1,35 +1,24 @@
-<p id="notice"><%= notice %></p>
+<style>
+  body{
+    background-image: image_path();
+  }
+</style>
 
-<h1>Listing Events</h1>
+<div id="full_calendar">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Keywords</th>
-      <th>Start time</th>
-      <th>Main image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.description %></td>
-        <td><%= event.keywords %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.main_image %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <%= month_calendar :events => @events, day_names: "date.day_names" do |d, e| %>
+    <%= content_tag :div, class: "calendar_date#{' has_event' if e.count > 0}" do %>
+      <%= d.strftime('%e') %>
+
+      <ul class="event_list">
+        <% e.each do |event| -%>
+          <li class="calendar_event">
+            <%= link_to event.name, event %>
+          </li>
+        <% end -%>
+
+      </ul>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+  <% end %>
+</div>

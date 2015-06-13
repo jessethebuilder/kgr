@@ -1,4 +1,12 @@
-<div id="news_story" class="content_block">
-  <h1><%= @news_story.title %></h1>
-  <%= image_tag @news_story.main_news_story_image.url %>
+<%= quick_options ['Edit', edit_news_story_path(@news_story)] if user_is_admin? %>
+
+
+<h1><%= @news_story.title %></h1>
+
+
+<div id="news_story" class="article">
+
+  <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
+    <%= image_tag @news_story.main_news_story_image.url(:medium) %>
+  <% end %>
 </div>

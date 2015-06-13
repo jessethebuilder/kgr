@@ -1,12 +1,13 @@
 $font_dark: black;
 $font_medium: grey;
 $font_light: white;
-$font_medium_light: rgba(0, 0, 0, 0.27);
+$font_medium_light: rgb(214, 214, 214);
 
 
 $link_color: rgb(255, 204, 0);;
 $link_hover_color: green;
 
 $content_block_color: rgba($font_dark, .70);
+$contrast_block_color: rgba(black, .50);
 
 $bright_accent: #db2754;

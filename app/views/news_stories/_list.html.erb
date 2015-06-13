@@ -1,0 +1,22 @@
+<div class="article_list" id="news_stories">
+  <% @news_stories.each do |story| -%>
+    <div class="article">
+        <%= image_tag story.main_news_story_image.url(:small), class: "article_image pull-#{cycle('left', 'right')}" %>
+      <h5>
+        <%= link_to story.title, story %>
+      </h5>
+
+      <div class="article_excerpt">
+        <%= story.excerpt.to_s %>
+        <%#= link_to 'Read more', story, class: 'btn btn-link btn-xs' %>
+
+
+      </div>
+
+      <!--<div>-->
+      <!--</div>-->
+    </div>
+  <% end -%>
+
+  <h5><%= link_to 'more stories >>', news_stories_path, class: 'pull-right' %></h5>
+</div>

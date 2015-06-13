@@ -30,6 +30,8 @@
   }
 
   .list_item{
+
+
     display: table;
 
     .image_cell{
@@ -82,13 +84,7 @@
 
 .article{
   .article_content{
-//    color: $font_medium_light;
-    color: rgb(158, 158, 158);
-    font-size: 18px;
-    font-family: $font-family-serif;
-    background-color: $content_block_color;
-    padding: 10px;
-    border-radius: 5px;
+     @extend .content_block;
 
     br{
       line-height: 36px;
@@ -109,6 +105,16 @@
 } // .article
 
 .article_list{
+
+  .article{
+    @extend .content_block;
+    margin-bottom: 10px;
+    min-height: 145px;
+  }
+  .article_image{
+    margin-right: 10px;
+  }
+
   .article_summary{
 
   }
