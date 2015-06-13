@@ -33,7 +33,10 @@
 <% end %>
 
 <% content_for :side_bar do %>
+
   <%= render :partial => 'events/embedded_monthly' %>
+
+  <%= recent_tweet_widget %>
 
 <% end %>
 
