@@ -3,7 +3,12 @@
     <div class="article">
         <%= image_tag story.main_news_story_image.url(:small), class: "article_image pull-#{cycle('left', 'right')}" %>
       <h5>
-        <%= link_to story.title, story %>
+        <% if user_is_admin? -%>
+          <%= link_to story.title, edit_news_story_path(story) %>
+          <small><%= story.publication_status %></small>
+        <% else -%>
+          <%= link_to story.title, story %>
+        <% end %>
       </h5>
 
       <div class="article_excerpt">

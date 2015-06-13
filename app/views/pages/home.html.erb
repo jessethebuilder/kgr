@@ -10,18 +10,18 @@
              'music.radio_station', 'killergreenradio.com', root_url, :facebook_app_id => FB_APP_ID) %>
 
 <% content_for :top_banner do %>
-  <div id="like_and_follow_buttons" class="container">
-    <div class="follow_button">
-      <!--<div class="fb-like" data-href="https://www.facebook.com/pages/Killer-Green-Radio/862349183856059" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>-->
-      <%= follow_on_facebook_button(FB_APP_PAGE, :layout => 'button') %>
-    </div>
+  <!--<div id="like_and_follow_buttons" class="container">-->
+    <!--<div class="follow_button">-->
+      <!--&lt;!&ndash;<div class="fb-like" data-href="https://www.facebook.com/pages/Killer-Green-Radio/862349183856059" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>&ndash;&gt;-->
+      <!--<%= follow_on_facebook_button(FB_APP_PAGE, :layout => 'button') %>-->
+    <!--</div>-->
 
-    <div class="follow_button">
-      <div class="follow_on_twitter_button">
-        <%= follow_on_twitter_button(TWITTER_FANPAGE, :include_script => true) %>
-      </div>
-    </div>
-  </div>
+    <!--<div class="follow_button">-->
+      <!--<div class="follow_on_twitter_button">-->
+        <!--<%= follow_on_twitter_button(TWITTER_FANPAGE, :include_script => true) %>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
   <!--<div class="container">-->
     <!--<div class="row">-->
@@ -36,7 +36,6 @@
 
   <%= render :partial => 'events/embedded_monthly' %>
 
-  <%= recent_tweet_widget %>
-
+  <%= render :partial => 'parts/on_the_web_widget' %>
 <% end %>
 

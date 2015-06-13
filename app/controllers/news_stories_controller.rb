@@ -10,8 +10,15 @@ class NewsStoriesController < ApplicationController
   respond_to :html
 
   def index
-    @news_stories = NewsStory.all
-    render :index, layout: 'admin_form'
+    if user_is_admin?
+      @news_stories = NewsStory.all
+    else
+      @news_stories = NewsStory.published
+    end
+
+    @calendar_events = Event.all
+    # render :index, layout: 'admin_form'
+    render :index
   end
 
   def show

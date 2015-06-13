@@ -1,0 +1,20 @@
+/*------------------------------------------------------
+- #on_the_web_widget
+------------------------------------------------------*/
+
+#on_the_web_widget{
+  margin-top: 10px;
+
+  #follow_on_facebook_button_container{
+    color: $font_light;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: $content_block_color;
+    border: 2px solid $font-light;
+    border-radius: 7px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -3,14 +3,16 @@
 
 <%= quick_options ['Edit', edit_dj_path(@dj)] if user_is_admin? %>
 
+
+<h1>
+  <%= @dj.name%>
+  <div class="pull-right">
+    <%= render partial: 'social_networking_links', locals: {:dj => @dj} %>
+  </div>
+</h1>
+
 <div id="dj" class="article">
 
-  <h1>
-    <%= @dj.name%>
-    <div class="pull-right">
-      <%= render partial: 'social_networking_links', locals: {:dj => @dj} %>
-    </div>
-  </h1>
 
 
   <div class="article_content">

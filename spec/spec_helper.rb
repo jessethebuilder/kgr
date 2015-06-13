@@ -17,8 +17,8 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include ActionView::Helpers::NumberHelper
   config.include Devise::TestHelpers, :type => :controller
-  # config.include ControllerSpecsHelper, type: :controller
-  # config.include RequestsHelper, type: :feature
+  config.include ControllerSpecsHelper, type: :controller
+  config.include RequestSpecsHelper, type: :feature
 
   config.infer_base_class_for_anonymous_controllers = false
 

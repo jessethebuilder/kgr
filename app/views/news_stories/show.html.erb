@@ -1,12 +1,16 @@
-<%= quick_options ['Edit', edit_news_story_path(@news_story)] if user_is_admin? %>
-
-
-<h1><%= @news_story.title %></h1>
-
+<h1>
+  <% if user_is_admin? -%>
+    <%= link_to @news_story.title, edit_news_story_path(@news_story) %>
+  <% else -%>
+    <%= @news_story.title %>
+  <% end -%>
+</h1>
 
 <div id="news_story" class="article">
-
   <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
     <%= image_tag @news_story.main_news_story_image.url(:medium) %>
   <% end %>
 </div>
+
+<% head_info(@news_story.title, @news_story.excerpt, @news_story.main_news_story_image_url(:large), 'article', 'killergreenradio.com',
+             news_story_url(@news_story), keywords: @news_story.keywords) %>

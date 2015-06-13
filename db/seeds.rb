@@ -1,3 +1,6 @@
+a = User.create!(:email => 'admin@test.com', password: 'lassiter', admin: true)
+u = User.create!(:email => 'user@test.com', password: 'lassiter')
+
 10.times do
   d = Dj.new :name => Faker::Name.name, :email => Faker::Internet.email, :tag_line => Faker::Company.catch_phrase,
              short_bio: Faker::Lorem.sentences(sentence_count = Random.rand(1..3)).join('. '),

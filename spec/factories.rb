@@ -1,5 +1,8 @@
+require 'support/request_specs_helper'
+
 FactoryGirl.define do
   sequence(:email){ |n| "test_email#{n}@test.com"}
+  pw = RequestSpecsHelper::PW
 
 
   factory :event do
@@ -18,6 +21,10 @@ FactoryGirl.define do
 
   factory :user do
     email
-    password 'carltonlasiter'
+    password pw
+
+    factory :admin do
+      admin true
+    end
   end
 end
