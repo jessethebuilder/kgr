@@ -21,7 +21,4 @@ module ApplicationHelper
   def recent_tweet_widget
     '<a class="twitter-timeline" href="https://twitter.com/killergreenrad1" data-widget-id="609589667843805184">Tweets by @killergreenrad1</a>'.html_safe
   end
-
-
-
 end
