@@ -17,5 +17,4 @@ module ApplicationHelper
   def user_is_this_dj?(dj)
     user_signed_in? && current_user.dj == dj
   end
-
 end
