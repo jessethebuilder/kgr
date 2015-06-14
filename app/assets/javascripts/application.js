@@ -18,5 +18,7 @@
 //= require farm_tools
 //= require bootsy
 
+//= require gallery/touch_touch
+
 //= require djs
 //= require_tree .

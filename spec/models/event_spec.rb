@@ -10,6 +10,20 @@ RSpec.describe Event, type: :model do
 
   describe 'Associations' do
     it{ should have_one :address }
+
+    describe 'Address' do
+      it 'should geocode the address upon save' do
+        a = event.address
+        a.street = '4218 S. Mt. Angeles Rd'
+        a.zip = '98362'
+
+        a.latitude.should == nil
+
+        event.save!
+
+        a.latitude.should_not == nil
+      end
+    end
   end
 
   describe 'Attributes' do

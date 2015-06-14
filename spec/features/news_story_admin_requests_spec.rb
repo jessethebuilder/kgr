@@ -54,10 +54,12 @@ describe 'News Story Admin Requests', type: :feature do
 
     describe 'Show' do
       describe 'Title' do
-        specify 'if user is admin, Title should link to edit' do
+        specify 'if user is admin, Edit link should show' do
           admin
           visit "/news_stories/#{news_story.slug}"
-          click_link news_story.title
+          within('.quick_options') do
+            click_link 'Edit'
+          end
           page.current_path.should == "/news_stories/#{news_story.slug}/edit"
         end
 

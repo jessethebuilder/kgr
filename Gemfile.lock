@@ -217,6 +217,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashie (3.4.2)
     hitimes (1.2.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -284,6 +285,9 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
+    rails-gallery (0.3.3)
+      hashie (>= 2.0.0)
+      rails (>= 3.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
@@ -408,6 +412,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   pg
   rails (= 4.2.1)
+  rails-gallery
   rails_12factor
   rest-client
   rspec-rails

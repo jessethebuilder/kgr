@@ -83,6 +83,8 @@ gem 'geocoder'
 
 gem "simple_calendar", "~> 1.1.0"
 
+gem 'rails-gallery'
+
 gem 'rest-client'
 
 

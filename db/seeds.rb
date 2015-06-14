@@ -46,3 +46,14 @@ end
 
   n.save!
 end
+
+gal = Gallery.create! :name => Faker::Company.catch_phrase
+
+20.times do
+  i = GalleryImage.new :image => 'x', :name => Faker::Company.catch_phrase
+
+  fn = File.join(Rails.root, 'app/assets/images/demo', "user_sample#{Random.rand(1..2)}.jpg")
+  i.image = File.new(fn)
+
+  gal.gallery_images << i
+end

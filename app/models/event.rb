@@ -18,6 +18,10 @@ class Event < ActiveRecord::Base
     build_address if address.nil?
   end
 
+  before_save do
+    address.geocode
+  end
+
   def starts_at
     start_time
   end

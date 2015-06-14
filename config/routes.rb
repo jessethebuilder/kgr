@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  resources :events
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  resources :djs
-  devise_for :users
   root 'pages#home'
 
-  get 'pages/home'
-  get 'pages/contact_us'
+  get 'pages/home', as: 'home'
+  get 'pages/contact_us', as: 'contact_us'
+  # get 'pages/gallery', as: 'gallery'
+
+  resources :galleries
+  # resources :gallery_images
+
+  resources :events
+
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+
+  resources :djs
+
+  devise_for :users
 
   resources :news_stories
 

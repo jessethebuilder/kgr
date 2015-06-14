@@ -33,6 +33,10 @@
                 <%= link_to 'Events', events_path %>
               </li>
 
+              <li>
+                <%= link_to 'Gallery', gallery_path(Gallery.first) %>
+              </li>
+
               <% if user_is_admin? %>
                 <li classs="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>

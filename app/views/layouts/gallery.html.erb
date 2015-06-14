@@ -4,16 +4,17 @@
   <%= render partial: 'parts/head' %>
 </head>
 <body>
+<%= render partial: 'parts/top_nav' %>
 
 <%= render partial: 'parts/header' %>
-<%= render partial: 'parts/top_nav' %>
 <%= render partial: 'parts/the_flash' %>
+
+<%#= content_for :top_banner %>
 
 <div class="container" id="content_container">
   <%= yield %>
 </div><!-- content_container -->
 
 <%= render partial: 'parts/footer' %>
-
 </body>
 </html>

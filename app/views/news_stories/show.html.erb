@@ -1,9 +1,7 @@
+<%= quick_options ['Edit', edit_news_story_path(@news_story)] if user_is_admin? %>
+
 <h1>
-  <% if user_is_admin? -%>
-    <%= link_to @news_story.title, edit_news_story_path(@news_story) %>
-  <% else -%>
-    <%= @news_story.title %>
-  <% end -%>
+  <%= @news_story.title %>
 </h1>
 
 <div>

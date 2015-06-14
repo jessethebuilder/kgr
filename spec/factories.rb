@@ -27,4 +27,12 @@ FactoryGirl.define do
       admin true
     end
   end
+
+  factory :gallery do
+    name Faker::Company.catch_phrase
+  end
+
+  factory :gallery_image do
+
+  end
 end

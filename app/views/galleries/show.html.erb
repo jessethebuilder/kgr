@@ -1,0 +1,19 @@
+<div id="gallery" class="container">
+  <% @gallery.gallery_images.in_groups_of(3) do |image_group| -%>
+    <div class="row">
+      <% image_group.each do |i| -%>
+        <div class="col-md-4">
+          <% if i %>
+            <div class="gallery_image_container">
+              <%= image_tag i.image.url(:medium) %>
+
+              <div class="gallery_image_name">
+                <%= i.name %>
+              </div>
+            </div>
+          <% end -%>
+        </div><!-- col -->
+      <% end -%>
+    </div><!-- row -->
+  <% end -%>
+</div>
