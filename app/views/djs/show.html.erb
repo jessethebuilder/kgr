@@ -12,12 +12,13 @@
 </h1>
 
 <div id="dj" class="article">
-
-
-
   <div class="article_content">
-    <%= image_tag @dj.head_shot.url(:medium), class: 'head_shot pull-left' %>
+    <%= link_to @dj.head_shot.url, target: '_blank' do -%>
+      <%= image_tag @dj.head_shot.url(:medium), class: 'article_image' %>
+    <% end if @dj.head_shot? %>
+
     <% unless @dj.show.nil? -%>
+
       <h4><small>Host of </small><%= @dj.show.name.to_s %></h4>
       <well>
         <%= @dj.show.description.to_s.html_safe %>
@@ -28,7 +29,7 @@
   </div>
 
   <div class="facebook_comments">
-    <%= facebook_comments(dj_path(@dj)) %>
+    <%= facebook_comments(dj_url(@dj)) %>
   </div>
 </div>
 

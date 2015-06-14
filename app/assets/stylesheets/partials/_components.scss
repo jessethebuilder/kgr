@@ -3,7 +3,9 @@
 - .block_list
 - .article
 - .article_list
-- .social_networking_links
+- Social Networking
+  * .social_networking_links
+  * #share_on_social_networking
 -------------------------------------------------*/
 
 //----------- Slider ----
@@ -94,7 +96,8 @@
   } // .article_content
 
 
-  .head_shot{
+  .article_image{
+    float: left;
     margin-right: 20px;
 //    margin-bottom: 10px;
   }
@@ -120,10 +123,26 @@
   }
 } // .article_list
 
+//---------------------- Social Networking -----------------
 
 .social_networking_links{
   img{
     padding-left: 5px;
     padding-right: 5px;
+  }
+}
+
+#share_on_social_networking{
+//  padding-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .tweet_button{
+  }
+
+  .facebook_button{
+    position: relative;
+    top: -5px;
+    margin-left: 10px;
   }
 }

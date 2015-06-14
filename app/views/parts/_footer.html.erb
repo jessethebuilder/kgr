@@ -1,5 +1,40 @@
 <div id="footer">
   <div class="container">
+    <div class="row">
+      <div class="col-sm-4 footer_cell first">
+        <div class="social_networking_link">
+          <%= mail_to 'office@killergreenradio.com' do %>
+            <%= image_tag 'social_networking/small_mail.png' %> Email
+          <% end %>
+        </div>
 
+        <div class="social_networking_link">
+          <%= link_to 'https://www.facebook.com/pages/Killer-Green-Radio/862349183856059' do %>
+            <%= image_tag 'social_networking/small_facebook.png' %> Facebook
+          <% end %>
+        </div>
+
+        <div class="social_networking_link">
+          <%= link_to 'https://twitter.com/killergreenrad1' do %>
+            <%= image_tag 'social_networking/small_twitter.png' %> Twitter
+          <% end %>
+        </div>
+
+        <br>
+
+        <address>
+          Killer Green Radio<br>
+          1010 Olympus<br>
+          Port Angeles, WA 98362
+        </address>
+      </div><!-- col -->
+      <div class="col-sm-4 footer_cell middle"></div><!-- col -->
+      <div class="col-sm-4 footer_cell last" style="padding-top: 160px;">
+        Web design by &nbsp;
+        <%= link_to 'http://anysoft.us', target: '_blank' do %>
+          <%= image_tag 'logos/vendor/anysoft.png', height: '50px' %>
+        <% end %>
+      </div><!-- col -->
+    </div><!-- row -->
   </div>
 </div>

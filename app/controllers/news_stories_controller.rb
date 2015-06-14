@@ -22,6 +22,7 @@ class NewsStoriesController < ApplicationController
   end
 
   def show
+    @calendar_events = Event.all
     respond_with(@news_story)
   end
 

@@ -6,11 +6,26 @@
   <% end -%>
 </h1>
 
+<div>
+  <%= render :partial => 'parts/social_networking/share_on_social_networking' %>
+</div>
+
+
 <div id="news_story" class="article">
-  <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
-    <%= image_tag @news_story.main_news_story_image.url(:medium) %>
-  <% end %>
+  <div class="article_content">
+    <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
+      <%= image_tag @news_story.main_news_story_image.url(:medium), class: 'article_image' %>
+    <% end %>
+    <div>
+      <%= @news_story.content.to_s.html_safe %>
+    </div>
+  </div>
+
 </div>
 
 <% head_info(@news_story.title, @news_story.excerpt, @news_story.main_news_story_image_url(:large), 'article', 'killergreenradio.com',
              news_story_url(@news_story), keywords: @news_story.keywords) %>
+
+<% content_for :side_bar do %>
+  <%= render :partial => 'events/embedded_monthly' %>
+<% end %>
