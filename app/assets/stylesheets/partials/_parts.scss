@@ -49,10 +49,11 @@ div.flash.alert{
   padding-top: 20px;
   padding-bottom: 20px;
 //  border-top: 1px solid $font_light;
+  background-color: $content_block_color;
+
   box-shadow: 0px -5px 3px 0px $font_dark;
 
   .footer_cell{
-    background-color: $content_block_color;
     color: $font_light;
   }
 }
