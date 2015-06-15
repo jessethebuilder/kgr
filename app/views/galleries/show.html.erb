@@ -7,11 +7,12 @@
           <% if i %>
             <div class="gallery_image_container">
               <%= link_to i.image.url(:large), class: 'gallery_image_link' do %>
-                <%= image_tag i.image.url(:small) %>
+                <%= image_tag i.image.url(:medium) %>
+                <div class="gallery_image_name">
+                  <%= i.name %>
+                </div>
               <% end %>
-              <div class="gallery_image_name">
-                <%= i.name %>
-              </div>
+
             </div>
           <% end -%>
         </div><!-- col -->
@@ -23,5 +24,13 @@
 <script>
   ready_methods.push(function(){
     $('.gallery_image_link').touchTouch();
+  });
+
+  ready_methods.push(function(){
+    $('.gallery_image_container').hover(function(){
+      $(this).find('.gallery_image_name').addClass('bright_background');
+    }, function(){
+      $(this).find('.gallery_image_name').removeClass('bright_background');
+    });
   });
 </script>

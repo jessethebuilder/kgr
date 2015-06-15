@@ -54,6 +54,6 @@ class GalleriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def gallery_params
-      params[:gallery]
+      params.require(:gallery).permit(:name, :gallery_image_attributes => [:name, :image])
     end
 end

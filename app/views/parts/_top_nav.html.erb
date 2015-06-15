@@ -33,9 +33,11 @@
                 <%= link_to 'Events', events_path %>
               </li>
 
-              <li>
-                <%= link_to 'Gallery', gallery_path(Gallery.first) %>
-              </li>
+              <% if Gallery.first -%>
+                <li>
+                  <%= link_to 'Gallery', gallery_path(Gallery.first) %>
+                </li>
+              <% end -%>
 
               <% if user_is_admin? %>
                 <li classs="dropdown">
