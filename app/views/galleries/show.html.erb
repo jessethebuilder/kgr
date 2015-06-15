@@ -1,9 +1,19 @@
+<style>
+  #gallery{
+    display: inline;
+  }
+
+  .gallery_image_container{
+
+  }
+</style>
+
 <div id="gallery" class="container">
   <h1><%= @gallery.name %></h1>
   <% @gallery.gallery_images.in_groups_of(4) do |image_group| -%>
-    <div class="row">
+    <!--<div class="row">-->
       <% image_group.each do |i| -%>
-        <div class="col-md-3">
+        <!--<div class="col-xs-3">-->
           <% if i %>
             <div class="gallery_image_container">
               <%= link_to i.image.url(:large), class: 'gallery_image_link' do %>
@@ -15,9 +25,9 @@
 
             </div>
           <% end -%>
-        </div><!-- col -->
+        <!--</div>&lt;!&ndash; col &ndash;&gt;-->
       <% end -%>
-    </div><!-- row -->
+    <!--</div>&lt;!&ndash; row &ndash;&gt;-->
   <% end -%>
 </div>
 
