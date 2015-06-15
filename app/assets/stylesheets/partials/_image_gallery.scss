@@ -1,0 +1,10 @@
+#gallery{
+  .gallery_image_container{
+    @extend .content_block;
+    padding: 15px;
+
+    img{
+      width: 100%;
+    }
+  }
+}

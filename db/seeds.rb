@@ -47,7 +47,7 @@ end
   n.save!
 end
 
-gal = Gallery.create! :name => Faker::Company.catch_phrase
+gal = Gallery.create! :name => 'Gallery'
 
 20.times do
   i = GalleryImage.new :image => 'x', :name => Faker::Company.catch_phrase

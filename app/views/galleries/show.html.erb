@@ -1,12 +1,14 @@
 <div id="gallery" class="container">
-  <% @gallery.gallery_images.in_groups_of(3) do |image_group| -%>
+  <h1><%= @gallery.name %></h1>
+  <% @gallery.gallery_images.in_groups_of(4) do |image_group| -%>
     <div class="row">
       <% image_group.each do |i| -%>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <% if i %>
             <div class="gallery_image_container">
-              <%= image_tag i.image.url(:medium) %>
-
+              <%= link_to i.image.url(:large), class: 'gallery_image_link' do %>
+                <%= image_tag i.image.url(:small) %>
+              <% end %>
               <div class="gallery_image_name">
                 <%= i.name %>
               </div>
@@ -17,3 +19,9 @@
     </div><!-- row -->
   <% end -%>
 </div>
+
+<script>
+  ready_methods.push(function(){
+    $('.gallery_image_link').touchTouch();
+  });
+</script>
