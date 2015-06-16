@@ -1,0 +1,17 @@
+<div id="gallery_image_<%= i.id %>" class="gallery_image_container">
+  <%= link_to i.image.url(:large), class: 'gallery_image_link' do %>
+    <%= image_tag i.image.url(:medium), class: 'gallery_image' %>
+    <div class="gallery_image_name">
+      <%= i.name %>
+
+      <% if user_is_admin? -%>
+        <div class="form-group form-inline">
+          <%= link_to 'Edit', "/galleries/#{@gallery.to_param}/gallery_images/#{i.to_param}/edit",
+                      remote: true, class: 'btn btn-xs btn-warning' %>
+          <%= link_to 'Delete', "/galleries/#{@gallery.to_param}/gallery_images/#{i.to_param}", method: :delete,
+                      remote: true, class: 'btn btn-xs btn-danger', data: {confirm: "Are you sure?" }%>
+        </div>
+      <% end -%>
+    </div>
+  <% end %>
+</div>

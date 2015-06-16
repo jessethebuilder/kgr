@@ -1,0 +1,3 @@
+$('#express_modal').modal('hide');
+$("#gallery_image_<%= j @gallery_image.id.to_s %>").replaceWith("<%= j render partial: 'gallery_images/show', locals: {:i => @gallery_image} %>");
+$('.gallery_image_link').touchTouch();

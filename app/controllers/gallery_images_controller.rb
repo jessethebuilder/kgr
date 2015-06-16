@@ -1,51 +1,41 @@
 class GalleryImagesController < ApplicationController
-  before_action :set_gallery_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_gallery_image, only: [:edit, :update, :destroy]
+  before_action :set_gallery, only: [:new, :create  ]
 
-  # GET /gallery_images
-  def index
-    @gallery_images = GalleryImage.all
+  def destroy
+    @gallery_image.destroy
   end
 
-  # GET /gallery_images/1
-  def show
+  def edit
+
   end
 
-  # GET /gallery_images/new
+  def update
+    @gallery_image.update(gallery_image_params)
+  end
+
   def new
     @gallery_image = GalleryImage.new
   end
 
-  # GET /gallery_images/1/edit
-  def edit
-  end
-
-  # POST /gallery_images
   def create
     @gallery_image = GalleryImage.new(gallery_image_params)
 
-    if @gallery_image.save
-      redirect_to @gallery_image, notice: 'Gallery image was successfully created.'
-    else
-      render :new
-    end
-  end
+    @gallery.gallery_images << @gallery_image
 
-  # PATCH/PUT /gallery_images/1
-  def update
-    if @gallery_image.update(gallery_image_params)
-      redirect_to @gallery_image, notice: 'Gallery image was successfully updated.'
-    else
-      render :edit
-    end
-  end
 
-  # DELETE /gallery_images/1
-  def destroy
-    @gallery_image.destroy
-    redirect_to gallery_images_url, notice: 'Gallery image was successfully destroyed.'
+    # if @gallery_image.save
+    #   redirect_to @gallery_image, notice: 'Gallery image was successfully created.'
+    # else
+    #   render :new
+    # end
   end
 
   private
+    def set_gallery
+      @gallery = Gallery.find(params[:id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_gallery_image
       @gallery_image = GalleryImage.find(params[:id])
@@ -53,6 +43,6 @@ class GalleryImagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def gallery_image_params
-      params.require(:gallery_image).permit(:image, :name, :gallery_id)
+      params.require(:gallery_image).permit(:image, :remote_image_url, :image_cache, :name, :gallery_id)
     end
 end

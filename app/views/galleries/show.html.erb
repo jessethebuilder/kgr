@@ -1,46 +1,21 @@
-<style>
-  #gallery{
-    display: inline;
-  }
-
-  .gallery_image_container{
-
-  }
-</style>
-
-<div id="gallery" class="container">
+<div class="container">
+  <%= quick_options(['Add Image', new_gallery_image_path(@gallery)], ajax: true) if user_is_admin?  %>
   <h1><%= @gallery.name %></h1>
-  <% @gallery.gallery_images.in_groups_of(4) do |image_group| -%>
-    <!--<div class="row">-->
-      <% image_group.each do |i| -%>
-        <!--<div class="col-xs-3">-->
-          <% if i %>
-            <div class="gallery_image_container">
-              <%= link_to i.image.url(:large), class: 'gallery_image_link' do %>
-                <%= image_tag i.image.url(:medium) %>
-                <div class="gallery_image_name">
-                  <%= i.name %>
-                </div>
-              <% end %>
 
-            </div>
-          <% end -%>
-        <!--</div>&lt;!&ndash; col &ndash;&gt;-->
-      <% end -%>
-    <!--</div>&lt;!&ndash; row &ndash;&gt;-->
-  <% end -%>
-</div>
+  <div id="gallery">
+    <% @gallery.gallery_images.order(:updated_at => :desc).each do |i| -%>
+      <%= render partial: 'gallery_images/show', :locals => {:i => i} %>
+    <% end -%> <!-- loop -->
+  </div><!-- #gallery -->
+</div><!-- cont -->
 
 <script>
-  ready_methods.push(function(){
+//  $(document).ready(function(){
+  $(window).load(function(){
     $('.gallery_image_link').touchTouch();
-  });
 
-  ready_methods.push(function(){
-    $('.gallery_image_container').hover(function(){
-      $(this).find('.gallery_image_name').addClass('bright_background');
-    }, function(){
-      $(this).find('.gallery_image_name').removeClass('bright_background');
-    });
-  });
+    galleryNameHoverHighlight();
+    galleryNameWidthNormalize();
+  })
+
 </script>

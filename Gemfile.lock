@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/jessethebuilder/farm_tools
-  revision: ac128ba0772ad11810780205edb95921f89de93e
+  revision: bfcd916a41629221419c88add9315ab1d06cbda4
   specs:
     farm_tools (0.0.3)
       geocoder
@@ -131,7 +131,7 @@ GEM
     fog-atmos (0.1.0)
       fog-core
       fog-xml
-    fog-aws (0.4.0)
+    fog-aws (0.4.1)
       fog-core (~> 1.27)
       fog-json (~> 1.0)
       fog-xml (~> 0.1)
@@ -326,7 +326,7 @@ GEM
     rspec-mocks (3.3.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-rails (3.3.0)
+    rspec-rails (3.3.1)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -374,7 +374,7 @@ GEM
       hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.4)
+    tzinfo-data (1.2015.5)
       tzinfo (>= 1.0.0)
     uglifier (2.7.1)
       execjs (>= 0.3.0)

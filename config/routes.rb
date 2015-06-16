@@ -5,7 +5,17 @@ Rails.application.routes.draw do
   get 'pages/contact_us', as: 'contact_us'
   # get 'pages/gallery', as: 'gallery'
 
-  resources :galleries
+  resources :galleries do
+    member do
+      resources :gallery_images
+    end
+    #
+    # member do
+    #   get 'ajax_add_image'
+    # end
+
+
+  end
   # resources :gallery_images
 
   resources :events

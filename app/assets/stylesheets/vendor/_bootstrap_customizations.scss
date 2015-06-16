@@ -5,9 +5,13 @@
 - Text Blocks
 - Components
  * .well
+ * .modal
 -----------------------------------------------------------*/
 //---------- Globals -------
-$font-family-sans-serif: 'Open Sans';
+//$font-family-sans-serif: 'Orbitron', 'sans-serif';
+//$font-family-sans-serif: 'Jura';
+$font-family-sans-serif: 'Open Sans', sans-serif;
+
 
 //--------- #top_nav --------
 $navbar-padding-horizontal: 20px;
@@ -50,3 +54,9 @@ a:visited{
 
 //------ Components ---
 $well-bg: $content_block_color;
+
+#express_modal{
+  .modal-header{
+    background-color: $content_block_color;
+  }
+}

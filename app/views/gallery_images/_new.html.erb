@@ -1,0 +1,14 @@
+<%= express_modal 'Add Image' do %>
+  <%= form_for(@gallery_image, method: :post, remote: true) do |f| %>
+    <%= image_select f, :image, version: :small %>
+
+    <div class="form-group">
+      <%= f.label :name, 'Description', class: 'control-label' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>
