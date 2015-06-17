@@ -1,5 +1,5 @@
 FB_APP_ID = '1832803683612089'
-FB_APP_PAGE = 'pages/Killer-Green-Radio/862349183856059'
+FB_APP_PAGE = 'killergreenradio'
 
 TWITTER_FANPAGE = 'killergreenrad1'
 

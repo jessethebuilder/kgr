@@ -3,19 +3,19 @@
     <div class="row">
       <div class="col-sm-4 footer_cell first">
         <div class="social_networking_link">
-          <%= mail_to 'office@killergreenradio.com' do %>
+          <%= mail_to 'office@killergreenradio.com', target: '_blank'  do %>
             <%= image_tag 'social_networking/small_mail.png' %> Email
           <% end %>
         </div>
 
         <div class="social_networking_link">
-          <%= link_to 'https://www.facebook.com/pages/Killer-Green-Radio/862349183856059' do %>
+          <%= link_to "https://www.facebook.com/#{FB_APP_PAGE}", target: '_blank'  do %>
             <%= image_tag 'social_networking/small_facebook.png' %> Facebook
           <% end %>
         </div>
 
         <div class="social_networking_link">
-          <%= link_to 'https://twitter.com/killergreenrad1' do %>
+          <%= link_to "https://twitter.com/#{TWITTER_FANPAGE}", target: '_blank' do %>
             <%= image_tag 'social_networking/small_twitter.png' %> Twitter
           <% end %>
         </div>
