@@ -28,7 +28,7 @@ RSpec.describe PagesController, type: :controller do
         end
 
         get :home
-        assigns(:news_stories).count.should == 6
+        assigns(:news_stories).count.should == 4
       end
     end
   end

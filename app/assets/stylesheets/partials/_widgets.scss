@@ -1,6 +1,7 @@
 /*------------------------------------------------------
 - #on_the_web_widget
 - .facebook_comments
+- #djs_attending (on events#show)
 ------------------------------------------------------*/
 
 //--------- #on_the_web_widget
@@ -21,10 +22,25 @@
   }
 }
 
-//--------------- #.facebook_comments ---
+//--------------- .facebook_comments ---
 .facebook_comments{
   border-radius: 10px;
   border: 10px solid $content_block_color;
   margin-top: 20px;
   background-color: $font_medium_light;
+}
+
+//--------------- #djs_attending -----
+ul#djs_attending{
+  list-style: none;
+  padding: 0px;
+
+  li{
+    margin-bottom: 15px;
+    font-size: 22px;
+
+    img{
+      margin-right: 15px;
+    }
+  }
 }

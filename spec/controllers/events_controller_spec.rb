@@ -50,6 +50,16 @@ RSpec.describe EventsController, type: :controller do
       get :show, {:id => event.to_param}, valid_session
       expect(assigns(:event)).to eq(event)
     end
+
+    it "assigns the :djs_attending to @djs_attending" do
+      event = Event.create! valid_attributes
+      dj = create(:dj)
+      event.djs_attending << dj
+      event.save
+
+      get :show, {:id => event.to_param}, valid_session
+      assigns(:djs_attending).should == [dj]
+    end
   end
 
   describe "GET #new" do

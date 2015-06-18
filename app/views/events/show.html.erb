@@ -1,16 +1,45 @@
-
-
 <% head_info(@event.name, @event.description, @event.main_image.url, 'article', 'Killer Green Radio', event_path(@event),
              keywords: @event.keywords) %>
 
 <%= quick_options ['Edit', edit_event_path(@event)] %>
 
+<h1><%= @event.name %></h1>
+
 <div id="event" class="article">
-  <h1><%= @event.name %></h1>
 
   <div class="article_content">
-    <%= image_tag @event.main_image.url(:large), class: 'article_banner_image' %>
+    <%= link_to @event.main_image.url, target: '_blank', class: 'article_image' do %>
+      <%= image_tag @event.main_image.url(:medium) %>
+    <% end if @event.main_image? %>
 
+    <div>
+      <%= @event.description.to_s.html_safe %>
+    </div>
   </div>
 </div>
+
+<% content_for :side_bar do %>
+  <% unless @event.djs_attending.empty? -%>
+    <h4>Meet!</h4>
+
+    <ul id="djs_attending">
+      <% @djs_attending.each do |dj| -%>
+        <li>
+          <%= link_to dj do %>
+            <%= image_tag dj.head_shot.url(:small)%>
+            <%= dj.name %>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end -%>
+
+  <% if @event.address && @event.address.geocoded? -%>
+    <h4>Location</h4>
+    <%= @event.address.google_embedded_map(GOOGLE_MAPS_API_KEY, zoom: 5) %>
+  <% end -%>
+
+
+  <%#= render :partial => 'events/embedded_monthly' %>
+<% end %>
 

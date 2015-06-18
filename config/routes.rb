@@ -9,14 +9,7 @@ Rails.application.routes.draw do
     member do
       resources :gallery_images
     end
-    #
-    # member do
-    #   get 'ajax_add_image'
-    # end
-
-
   end
-  # resources :gallery_images
 
   resources :events
 
@@ -24,7 +17,9 @@ Rails.application.routes.draw do
 
   resources :djs
 
-  devise_for :users
+  devise_for :users, path_prefix: 'd'
+
+  resources :users, only: [:index, :update]
 
   resources :news_stories
 

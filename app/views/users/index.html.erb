@@ -1,0 +1,24 @@
+<div id="users" class="content_block">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Admin?</th>
+        <th>DJ Name</th>
+        <th>Set as Admin</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= u.email %></td>
+          <td><%= u.admin %></td>
+          <td><%= u.dj.name if u.dj %></td>
+          <td></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+</div>

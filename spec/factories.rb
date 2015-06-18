@@ -33,6 +33,9 @@ FactoryGirl.define do
   end
 
   factory :gallery_image do
-
+    after(:build) do |img, eval|
+      fn = File.join(Rails.root, 'app/assets/images/demo', "user_sample#{Random.rand(1..2)}.jpg")
+      img.image = File.new(fn)
+    end
   end
 end

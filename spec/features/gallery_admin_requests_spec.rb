@@ -26,7 +26,10 @@ describe 'Gallery Admin Requests', type: :feature do
     end
 
     specify 'If ADMIN is signed in, images should have edit and delete link' do
+      gallery.gallery_images << create(:gallery_image)
+
       admin
+
       visit "/galleries/#{gallery.slug}"
 
       within('.gallery_image_name') do

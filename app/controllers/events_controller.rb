@@ -10,6 +10,8 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
+    @djs_attending = []
+    @event.djs_attending.each{ |dj| @djs_attending << Dj.find(dj) }
   end
 
   # GET /events/new
