@@ -1,13 +1,17 @@
 <div class="social_networking_links">
-  <%= link_to dj.facebook_url, target: '_blank' do %>
-    <%= image_tag 'social_networking/small_facebook.png' %>
-  <% end if dj.facebook_url %>
+  <% if dj.facebook_url -%>
+    <%= link_to dj.facebook_url, target: '_blank' do %>
+      <%= image_tag 'social_networking/small_facebook.png' %>
+    <% end %>
+  <% end -%>
 
-  <%= link_to dj.twitter_url, target: '_blank' do %>
-    <%= image_tag 'social_networking/small_twitter.png' %>
-  <% end if dj.twitter_url %>
+  <% if dj.twitter_url -%>
+    <%= link_to dj.twitter_url, target: '_blank' do %>
+      <%= image_tag 'social_networking/small_twitter.png' %>
+    <% end %>
+  <% end -%>
 
-  <%= mail_to dj.email, target: '_blank' do %>
+  <%= mail_to dj.email do %>
     <%= image_tag 'social_networking/small_mail.png' %>
   <% end if dj.email %>
 </div>

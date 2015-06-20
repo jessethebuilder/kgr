@@ -25,7 +25,7 @@ describe 'Dj Requests' do
 
     specify 'saves with the minimum params' do
       min
-      expect{ click_button 'Create' }.to change{ Dj.count }.by(1)
+      expect{ click_button 'Publish' }.to change{ Dj.count }.by(1)
     end
 
     specify 'Show variables should save' do
@@ -34,10 +34,11 @@ describe 'Dj Requests' do
         fill_in 'Name', with: 'Test Show Name'
       end
 
-      click_button 'Create'
+      click_button 'Publish'
       Dj.last.show.name.should == 'Test Show Name'
     end
   end  #Dj Creation
+
 
 
 end

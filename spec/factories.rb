@@ -6,17 +6,17 @@ FactoryGirl.define do
 
 
   factory :event do
-    name Faker::Company.bs.titlecase
+    name { Faker::Company.bs.titlecase }
     start_time Time.now + Random.rand(1..800).hours.minutes
   end
 
   factory :dj do
-    name Faker::Name.name
+    name { Faker::Name.name }
     email
   end
 
   factory :news_story do
-    title Faker::Company.bs.titlecase
+    title { Faker::Company.bs.titlecase }
   end
 
   factory :user do
@@ -29,7 +29,7 @@ FactoryGirl.define do
   end
 
   factory :gallery do
-    name Faker::Company.catch_phrase
+    name { Faker::Company.catch_phrase }
   end
 
   factory :gallery_image do

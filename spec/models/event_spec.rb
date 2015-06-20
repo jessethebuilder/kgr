@@ -21,22 +21,22 @@ RSpec.describe Event, type: :model do
 
         event.save!
 
-        a.latitude.should_not == nil
+        a.geocoded?.should == true
       end
     end
   end
 
   describe 'Attributes' do
-    describe ':djs_attending' do
-      it 'should be an array' do
-        event.djs_attending.class.should == Array
-      end
-
-      specify 'you can add elements to it' do
-        x = Random.rand(1..10000)
-        event.djs_attending << x
-        event.djs_attending.last.should == x
-      end
-    end
+  #   describe ':djs_attending' do
+  #     it 'should be an array' do
+  #       event.djs_attending.class.should == Array
+  #     end
+  #
+  #     specify 'you can add Users to it' do
+  #       u = create(:user)
+  #       event.djs_attending << u
+  #       event.djs_attending.last.should == u
+  #     end
+  #   end
   end
 end

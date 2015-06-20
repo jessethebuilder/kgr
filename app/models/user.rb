@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :dj
+
+  has_many :attendances
+  has_many :events, through: :attendances
+
+
+  #----------- Class Methods -----------
+
 end

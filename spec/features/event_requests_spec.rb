@@ -31,7 +31,7 @@ describe 'Event Requests' do
 
     it 'should accept the minimum values through the form, and save the object' do
       min
-      expect{ click_button 'Create Event' }.to change{Event.count}.by(1)
+      expect{ click_button 'Publish' }.to change{Event.count}.by(1)
 
       page.current_path.should == '/events/test-name'
     end
@@ -41,7 +41,7 @@ describe 'Event Requests' do
       fill_in 'Description', with: description
       fill_in 'Keywords', with: keywords
       fill_in 'Facebook event link', with: facebook_event_link
-      click_button 'Create Event'
+      click_button 'Publish'
 
       e = Event.last
       e.name.should == name
@@ -53,17 +53,16 @@ describe 'Event Requests' do
 
     it 'should add DJs to the djs attending through checkboxes' do
       dj = create :dj
-
       min
 
       check dj.name
-      click_button 'Create Event'
+      click_button 'Publish'
 
       e = Event.last
-      e.djs_attending.include?(dj.to_param).should == true
+      e.djs_attending.include?(dj).should == true
 
       visit "/events/#{e.to_param}/edit"
-      find("input[value='#{dj.to_param}']").should be_checked
+      find("input[value='#{dj.user.id}']").should be_checked
     end
 
     specify 'DJs attending should stay checked, even if there is a validation error' do
@@ -74,11 +73,9 @@ describe 'Event Requests' do
       fill_in 'Name', with: ''
       check dj.name
 
-      click_button 'Update Event'
+      click_button 'Publish'
 
-      # find("#event_djs_attending_0").should be_checked
-      find("input[value='#{dj.to_param}']").should be_checked
-
+      find("input[value='#{dj.user.id}']").should be_checked
     end
 
     it 'should accept address params' do
@@ -90,7 +87,7 @@ describe 'Event Requests' do
       find('#event_address_attributes_state').find(:xpath, 'option[2]').select_option
       fill_in 'Zip', with: '12345'
 
-      click_button 'Create Event'
+      click_button 'Publish'
 
       a = Event.last.address
       a.label.should == 'Test Location'
@@ -100,6 +97,36 @@ describe 'Event Requests' do
       a.state.should == 'AK'
       a.zip.should == '12345'
 
+    end
+  end # End To End
+
+  describe 'Editing Events Requests' do
+    let!(:event){ create(:event) }
+
+    describe 'DJs Attending' do
+      let!(:dj){ create(:dj) }
+      let!(:dj2){ create(:dj) }
+
+      specify "should be able to add a dj attending to an event with the click box" do
+        visit "/events/#{event.to_param}/edit"
+        check dj.name
+        click_button 'Publish'
+
+        event.reload
+        event.djs_attending.first.should == dj
+      end
+
+      specify "should be able to change djs_attending" do
+
+        visit "/events/#{event.to_param}/edit"
+        uncheck dj.name
+        check dj2.name
+        click_button 'Publish'
+
+        event.reload
+        event.djs_attending.first.should == dj2
+        event.djs_attending.include?(dj).should == false
+      end
     end
   end
 

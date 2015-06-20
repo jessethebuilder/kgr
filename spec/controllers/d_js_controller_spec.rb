@@ -37,11 +37,24 @@ RSpec.describe DjsController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all djs as @djs" do
-      dj = Dj.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:djs)).to eq([dj])
+    let!(:dj_draft){ Dj.create valid_attributes }
+    let!(:dj_pub){ Dj.create valid_attributes }
+    before(:each) do
+      dj_pub.publish
     end
+
+    it "assigns all published djs as @djs if no user is signed in" do
+      get :index, {}, valid_session
+      expect(assigns(:djs)).to eq([dj_pub])
+    end
+
+    it "assigns all djs to @djs if user is admin" do
+      login_user(create :admin)
+      get :index, {}, valid_session
+      assigns(:djs).count.should == 2
+    end
+
+
   end
 
   describe "GET #show" do
@@ -54,7 +67,7 @@ RSpec.describe DjsController, type: :controller do
     it "assigns any Events the DJ is attending to @calendar_events" do
       dj = Dj.create! valid_attributes
       e1 = create :event
-      e1.djs_attending << dj.to_param
+      e1.users << dj.user
       e1.save
 
       get :show, {:id => dj.to_param}, valid_session
@@ -81,30 +94,30 @@ RSpec.describe DjsController, type: :controller do
     context "with valid params" do
       it "creates a new Dj" do
         expect {
-          post :create, {:dj => valid_attributes}, valid_session
+          post :create, {:dj => valid_attributes, :commit => 'Publish'}, valid_session
         }.to change(Dj, :count).by(1)
       end
 
       it "assigns a newly created dj as @dj" do
-        post :create, {:dj => valid_attributes}, valid_session
+        post :create, {:dj => valid_attributes, :commit => 'Publish'}, valid_session
         expect(assigns(:dj)).to be_a(Dj)
         expect(assigns(:dj)).to be_persisted
       end
 
       it "redirects to the created dj" do
-        post :create, {:dj => valid_attributes}, valid_session
+        post :create, {:dj => valid_attributes, :commit => 'Publish'}, valid_session
         expect(response).to redirect_to(Dj.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved dj as @dj" do
-        post :create, {:dj => invalid_attributes}, valid_session
+        post :create, {:dj => invalid_attributes, :commit => 'Publish'}, valid_session
         expect(assigns(:dj)).to be_a_new(Dj)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:dj => invalid_attributes}, valid_session
+        post :create, {:dj => invalid_attributes, :commit => 'Publish'}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -118,20 +131,20 @@ RSpec.describe DjsController, type: :controller do
 
       it "updates the requested dj" do
         dj = Dj.create! valid_attributes
-        put :update, {:id => dj.to_param, :dj => new_attributes}, valid_session
+        put :update, {:id => dj.to_param, :dj => new_attributes, :commit => 'Publish'}, valid_session
         dj.reload
         dj.name.should == 'A New Name'
       end
 
       it "assigns the requested dj as @dj" do
         dj = Dj.create! valid_attributes
-        put :update, {:id => dj.to_param, :dj => valid_attributes}, valid_session
+        put :update, {:id => dj.to_param, :dj => valid_attributes, :commit => 'Publish'}, valid_session
         expect(assigns(:dj)).to eq(dj)
       end
 
       it "redirects to the dj" do
         dj = Dj.create! valid_attributes
-        put :update, {:id => dj.to_param, :dj => valid_attributes}, valid_session
+        put :update, {:id => dj.to_param, :dj => valid_attributes, :commit => 'Publish'}, valid_session
         expect(response).to redirect_to(dj)
       end
     end
@@ -139,13 +152,13 @@ RSpec.describe DjsController, type: :controller do
     context "with invalid params" do
       it "assigns the dj as @dj" do
         dj = Dj.create! valid_attributes
-        put :update, {:id => dj.to_param, :dj => invalid_attributes}, valid_session
+        put :update, {:id => dj.to_param, :dj => invalid_attributes, :commit => 'Publish'}, valid_session
         expect(assigns(:dj)).to eq(dj)
       end
 
       it "re-renders the 'edit' template" do
         dj = Dj.create! valid_attributes
-        put :update, {:id => dj.to_param, :dj => invalid_attributes}, valid_session
+        put :update, {:id => dj.to_param, :dj => invalid_attributes, :commit => 'Publish'}, valid_session
         expect(response).to render_template("edit")
       end
     end

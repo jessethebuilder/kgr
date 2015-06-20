@@ -17,7 +17,9 @@
                 <div class="info">
                   <div class="title">
                     <%= link_to dj.name, dj %>
-
+                    <% if user_is_admin? -%>
+                      <small><%= dj.publication_status %></small>
+                    <% end -%>
                   </div>
 
                   <div class="tag_line">

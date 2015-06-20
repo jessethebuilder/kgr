@@ -4,6 +4,13 @@
   }
 </style>
 
+<div class="row">
+  <div class="col-md-12">
+    <%= quick_options ['New', new_event_path] if user_is_admin? %>
+
+  </div>
+</div>
+
 <div id="full_calendar">
 
 
@@ -15,6 +22,9 @@
         <% e.each do |event| -%>
           <li class="calendar_event">
             <%= link_to event.name, event %>
+            <% if user_is_admin? -%>
+              <small><%= event.publication_status %></small>
+            <% end -%>
           </li>
         <% end -%>
 

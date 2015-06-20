@@ -17,4 +17,19 @@ RSpec.describe User, type: :model do
       user.admin.should == false
     end
   end
+
+  describe 'Class Methods' do
+    # describe 'User.djs' do
+    #   let!(:user){ create :user }
+    #   let!(:dj){ create :dj }
+    #
+    #   it 'should return djs' do
+    #     User.djs.should == [dj]
+    #   end
+    #
+    #   it 'should not return users that are not djs' do
+    #     User.djs.include?(user).should == false
+    #   end
+    # end
+  end
 end

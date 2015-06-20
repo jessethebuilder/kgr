@@ -3,7 +3,12 @@
 
 <%= quick_options ['Edit', edit_event_path(@event)] %>
 
-<h1><%= @event.name %></h1>
+<h1>
+  <%= @event.name %>
+  <% if user_is_admin? -%>
+    <small><%= @event.publication_status %></small>
+  <% end -%>
+</h1>
 
 <div id="event" class="article">
 
@@ -16,6 +21,17 @@
       <%= @event.description.to_s.html_safe %>
     </div>
   </div>
+
+  <div class="event_map">
+    <% if @event.address && @event.address.geocoded? -%>
+      <!--<h4>Location</h4>-->
+      <%#= @event.address.google_embedded_map(GOOGLE_MAPS_API_KEY, zoom: 5) %>
+    <% end -%>
+  </div>
+
+  <div class="facebook_comments">
+    <%= facebook_comments(event_url(@event)) %>
+  </div>
 </div>
 
 <% content_for :side_bar do %>
@@ -23,7 +39,7 @@
     <h4>Meet!</h4>
 
     <ul id="djs_attending">
-      <% @djs_attending.each do |dj| -%>
+      <% @event.djs_attending.each do |dj| -%>
         <li>
           <%= link_to dj do %>
             <%= image_tag dj.head_shot.url(:small)%>
@@ -34,10 +50,7 @@
     </ul>
   <% end -%>
 
-  <% if @event.address && @event.address.geocoded? -%>
-    <h4>Location</h4>
-    <%= @event.address.google_embedded_map(GOOGLE_MAPS_API_KEY, zoom: 5) %>
-  <% end -%>
+
 
 
   <%#= render :partial => 'events/embedded_monthly' %>

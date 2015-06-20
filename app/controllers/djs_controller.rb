@@ -3,16 +3,18 @@ class DjsController < ApplicationController
 
   # GET /djs
   def index
-    @djs = Dj.all
+    if user_is_admin?
+      @djs = Dj.all
+    else
+      @djs = Dj.published
+    end
+
     @calendar_events = Event.all
   end
 
   # GET /djs/1
   def show
-    #todo Optimize
-    arr = []
-    Event.all.each{ |e| arr << e if e.djs_attending.include?(@dj.to_param) }
-    @calendar_events = arr
+    @calendar_events = @dj.user.events
   end
 
   # GET /djs/new
@@ -29,8 +31,8 @@ class DjsController < ApplicationController
   # POST /djs
   def create
     @dj = Dj.new(dj_params)
-
     if @dj.save
+      @dj.commit = parse_commit
       redirect_to @dj, notice: 'Dj was successfully created.'
     else
       render :new, :layout => 'admin_form'
@@ -40,6 +42,7 @@ class DjsController < ApplicationController
   # PATCH/PUT /djs/1
   def update
     if @dj.update(dj_params)
+      @dj.commit = parse_commit
       redirect_to @dj, notice: 'Dj was successfully updated.'
     else
       render :edit, :layout => 'admin_form'
@@ -67,4 +70,16 @@ class DjsController < ApplicationController
                                  :head_shot, :remote_head_shot_url, :head_shot_cache,
                                  :slider_image, :remote_slider_image_url, :slider_image_cache)
     end
+
+  def parse_commit
+    #for SaveDraftArchiveDelete
+    case params[:commit]
+      when 'Save Draft'
+        :draft
+      when 'Publish'
+        :publish
+      when 'Archive'
+        :archive
+    end
+  end
 end

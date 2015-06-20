@@ -6,7 +6,17 @@
   </div>
 
   <div class="row">
+    <div class="col-sm-12">
+      <div id="publication_status" class="form-group">
+        Status: <strong><%= @dj.publication_status %></strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-sm-4">
+
+
       <div class="form-group">
         <%= f.label :name, class: 'control-label' %>
         <%= f.text_field :name, class: 'form-control' %>
@@ -100,10 +110,8 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <%= f.submit class: 'btn btn-primary' %>
+        <%= sdad_button_row(@dj, f) %>
 
-        <%= link_to 'Delete', @dj, method: :delete, class: 'btn btn-danger',
-                    :data => {:confirm => 'Are you sure? This is permanent'} unless @dj.new_record? %>
       </div>
     </div><!-- col -->
   </div><!-- row -->

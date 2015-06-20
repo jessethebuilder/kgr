@@ -1,17 +1,22 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :get_all_djs, only: [:new, :edit, :update, :create]
+  # before_action :get_all_djs, only: [:new, :edit, :update, :create]
   # before_action :process_djs_attending, only: [:create, :update]
 
   # GET /events
   def index
-    @events = Event.all
+    if user_is_admin?
+      @events = Event.all
+    else
+      @events = Event.published
+    end
+
   end
 
   # GET /events/1
   def show
-    @djs_attending = []
-    @event.djs_attending.each{ |dj| @djs_attending << Dj.find(dj) }
+    # @calendar_events = Event.all
+    # @djs_attending = @event.djs_attending
   end
 
   # GET /events/new
@@ -32,6 +37,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
+      @event.commit = parse_commit
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render :new, :layout => 'admin_form'
@@ -40,7 +46,9 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
+
     if @event.update(event_params)
+      @event.commit = parse_commit
       redirect_to @event, notice: 'Event was successfully updated.'
     else
       render :edit, :layout => 'admin_form'
@@ -58,24 +66,36 @@ class EventsController < ApplicationController
     def set_event
       @event = Event.find(params[:id])
     end
+    #
+    # def get_all_djs
+    #   @djs = Dj.all
+    # end
 
-    def get_all_djs
-      @djs = Dj.all
-    end
-
-    def process_djs_attending
-      djs = params[:djs_attending]
-      @event.djs_attending = djs
-    end
+    # def process_djs_attending
+    #   djs = params[:djs_attending]
+    #   @event.djs_attending = djs
+    # end
 
     # Only allow a trusted parameter "white list" through.
-    def event_params
-      params.require(:event).permit(:name, :description, :keywords, :start_time, {:djs_attending => []},
-                                    :facebook_event_link,
-                                    :bootsy_image_gallery_id,
-                                    :main_image, :remote_main_image_url, :main_image_cache,
-                                    :address_attributes => [:label, :street, :street2, :city, :state, :zip]
+  def event_params
+    params.require(:event).permit(:name, :description, :keywords, :start_time, {:user_ids => []},
+                                  :facebook_event_link,
+                                  :bootsy_image_gallery_id,
+                                  :main_image, :remote_main_image_url, :main_image_cache,
+                                  :address_attributes => [:label, :street, :street2, :city, :state, :zip]
+     )
+  end
 
-      )
+  def parse_commit
+    #for SaveDraftArchiveDelete
+    case params[:commit]
+      when 'Save Draft'
+        :draft
+      when 'Publish'
+        :publish
+      when 'Archive'
+        :archive
     end
+  end
+
 end

@@ -2,6 +2,9 @@
 
 <h1>
   <%= @news_story.title %>
+  <% if user_is_admin? -%>
+    <small><%= @news_story.publication_status %></small>
+  <% end -%>
 </h1>
 
 <div>
@@ -14,9 +17,15 @@
     <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
       <%= image_tag @news_story.main_news_story_image.url(:medium), class: 'article_image' %>
     <% end %>
+
+
     <div>
       <%= @news_story.content.to_s.html_safe %>
     </div>
+  </div>
+
+  <div class="facebook_comments">
+    <%= facebook_comments(news_story_url(@news_story)) %>
   </div>
 
 </div>

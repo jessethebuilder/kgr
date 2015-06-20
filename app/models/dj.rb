@@ -2,6 +2,9 @@ class Dj < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
   include Bootsy::Container
 
+  extend SaveDraftArchiveDelete
+
+
   belongs_to :user
 
   has_one :show

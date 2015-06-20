@@ -6,6 +6,9 @@
 
 <h1>
   <%= @dj.name%>
+  <% if user_is_admin? -%>
+    <small><%= @dj.publication_status %></small>
+  <% end -%>
   <div class="pull-right">
     <%= render partial: 'social_networking_links', locals: {:dj => @dj} %>
   </div>
@@ -38,7 +41,7 @@
 </div>
 
 <% content_for :side_bar do %>
-  <%= render :partial => 'events/embedded_monthly' %>
+  <%= render :partial => 'events/embedded_monthly' if @dj.user.events.count > 0 %>
 <% end %>
 
 
