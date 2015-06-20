@@ -38,4 +38,8 @@ FactoryGirl.define do
       img.image = File.new(fn)
     end
   end
+
+  factory :show do
+    name { Faker::Business.name }
+  end
 end

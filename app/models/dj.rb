@@ -4,15 +4,10 @@ class Dj < ActiveRecord::Base
 
   extend SaveDraftArchiveDelete
 
-
   belongs_to :user
 
   has_one :show
   accepts_nested_attributes_for :show
-
-  after_initialize do
-    build_show if show.nil?
-  end
 
   use_farm_slugs
 

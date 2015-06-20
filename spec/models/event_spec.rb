@@ -9,6 +9,9 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'Associations' do
+    it{ should have_many :attendances }
+    it{ should have_many(:users).through(:attendances) }
+
     it{ should have_one :address }
 
     describe 'Address' do

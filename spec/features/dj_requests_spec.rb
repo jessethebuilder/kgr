@@ -28,15 +28,6 @@ describe 'Dj Requests' do
       expect{ click_button 'Publish' }.to change{ Dj.count }.by(1)
     end
 
-    specify 'Show variables should save' do
-      min
-      within('#show_information_col') do
-        fill_in 'Name', with: 'Test Show Name'
-      end
-
-      click_button 'Publish'
-      Dj.last.show.name.should == 'Test Show Name'
-    end
   end  #Dj Creation
 
 

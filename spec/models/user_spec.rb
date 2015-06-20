@@ -9,7 +9,11 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Associations' do
-    it{ should have_one :dj }
+    it{ should have_many(:attendances) }
+    it{ should have_many(:events).through(:attendances) }
+
+    it{ should have_many(:talent_fors) }
+    it{ should have_many(:shows).through(:talent_fors) }
   end
 
   describe 'Attributes' do

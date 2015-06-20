@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Attendance, type: :model do
+RSpec.describe TalentFor, type: :model do
   describe 'Associations' do
     it{ should belong_to :user }
-    it{ should belong_to :event }
+    it{ should belong_to :show }
   end
 end

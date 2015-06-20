@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :attendances
   has_many :events, through: :attendances
 
+  has_many :talent_fors
+  has_many :shows, through: :talent_fors
+
 
   #----------- Class Methods -----------
 
