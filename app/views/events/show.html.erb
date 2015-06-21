@@ -46,6 +46,14 @@
     <%= render partial: 'djs/list', locals: {djs: @event.djs_attending} %>
   <% end -%>
 
+  <% if @event.facebook_event_link -%>
+    <h4>RSVP on
+      <%= link_to @event.facebook_event_link do %>
+        <%= image_tag 'social_networking/facebook_square_medium.png', :target => '_blank',
+                      :width => '45px', style: 'position:relative; top: -8px;' %>
+      <% end %>
+    </h4>
+  <% end -%>
 
 
 

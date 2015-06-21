@@ -1,6 +1,14 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy]
 
+  def index
+    if user_is_admin?
+      @shows = Show.all
+    else
+      @shows = Show.published
+    end
+  end
+
   def show
 
   end
@@ -19,6 +27,24 @@ class ShowsController < ApplicationController
     else
       render :new, layout: 'admin_form'
     end
+  end
+
+  def edit
+    render :edit, :layout => 'admin_form'
+  end
+
+  def update
+    if @show.update(show_params)
+      @show.commit = parse_commit
+      redirect_to @show, notice: "#{@show.name} was successfully updated"
+    else
+      render :edit, :layout => 'admin_form'
+    end
+  end
+
+  def destroy
+    @show.destroy
+    redirect_to shows_url, :notice => 'Show was successfully destroyed'
   end
 
   private

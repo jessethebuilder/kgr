@@ -1,0 +1,15 @@
+<div id="shows">
+  <%= quick_options ['New', new_show_path] if user_is_admin? %>
+
+  <h1>Shows</h1>
+
+
+</div>
+
+<% content_for :side_bar do %>
+  <%= render :partial => 'events/embedded_monthly' %>
+<% end %>
+
+
+<% head_info('Shows on Killer Green Radio', 'Shows on Killer Green Radio', standard_image, 'article', 'killergreenradio.com',
+             shows_url, keywords: standard_keywords) %>

@@ -9,12 +9,12 @@ class DjsController < ApplicationController
       @djs = Dj.published
     end
 
-    @calendar_events = Event.all
+    @calendar_events = Event.published
   end
 
   # GET /djs/1
   def show
-    @calendar_events = @dj.user.events
+    @calendar_events = @dj.user.events.published
   end
 
   # GET /djs/new

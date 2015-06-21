@@ -54,6 +54,14 @@ RSpec.describe DjsController, type: :controller do
       assigns(:djs).count.should == 2
     end
 
+    it "assigns all PUBLISHED Events to @calendar_events" do
+      event_pub = create(:event, :published => true)
+      event_draft = create(:event)
+
+      get :index, {}, valid_session
+      assigns(:calendar_events).should == [event_pub]
+    end
+
 
   end
 
@@ -64,11 +72,15 @@ RSpec.describe DjsController, type: :controller do
       expect(assigns(:dj)).to eq(dj)
     end
 
-    it "assigns any Events the DJ is attending to @calendar_events" do
+    it "assigns any PUBLISHED Events the DJ is attending to @calendar_events" do
       dj = Dj.create! valid_attributes
-      e1 = create :event
+      e1 = create :event, :published => true
+      e2 = create :event
+
       e1.users << dj.user
       e1.save
+      e2.users << dj.user
+      e2.save
 
       get :show, {:id => dj.to_param}, valid_session
       expect(assigns(:calendar_events)).to eq([e1])

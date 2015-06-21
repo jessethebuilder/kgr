@@ -26,6 +26,10 @@
               </li>
 
               <li>
+                <%= link_to 'Shows', shows_path %>
+              </li>
+
+              <li>
                 <%= link_to 'DJs', djs_path %>
               </li>
 
@@ -39,7 +43,7 @@
                 </li>
               <% end -%>
 
-              <% if user_is_admin? %>
+              <% if false %>
                 <li classs="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
                   <ul class="dropdown-menu">

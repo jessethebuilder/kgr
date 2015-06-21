@@ -16,13 +16,13 @@ class NewsStoriesController < ApplicationController
       @news_stories = NewsStory.published
     end
 
-    @calendar_events = Event.all
+    @calendar_events = Event.published
     # render :index, layout: 'admin_form'
     render :index
   end
 
   def show
-    @calendar_events = Event.all
+    @calendar_events = Event.published
     respond_with(@news_story)
   end
 
@@ -37,9 +37,9 @@ class NewsStoriesController < ApplicationController
 
   def create
     @news_story = NewsStory.new(news_story_params)
-    @news_story.commit = parse_commit
 
     if @news_story.save
+      @news_story.commit = parse_commit
       redirect_to @news_story, notice: 'News Story was successfully created.'
     else
       render :new, :layout => 'admin_form'
@@ -47,20 +47,18 @@ class NewsStoriesController < ApplicationController
   end
 
   def update
-    @news_story.commit = parse_commit
 
     if @news_story.update(news_story_params)
-        redirect_to @news_story, notice: 'News Story was successfully updated.'
-      else
-        render :edit, :layout => 'admin_form'
-      end
+      @news_story.commit = parse_commit
+      redirect_to @news_story, notice: 'News Story was successfully updated.'
+    else
+      render :edit, :layout => 'admin_form'
+    end
   end
 
   def destroy
     @news_story.destroy
-    #Stylistic choice. Strictly optional.
-    notice << "#{@news_story.title} has been destroyed forever"
-    respond_with(@news_story)
+    redirect_to news_stories_url, notice: 'News Story was successfully destroyed.'
   end
 
   private

@@ -16,7 +16,6 @@ class EventsController < ApplicationController
   # GET /events/1
   def show
     # @calendar_events = Event.all
-    # @djs_attending = @event.djs_attending
   end
 
   # GET /events/new
