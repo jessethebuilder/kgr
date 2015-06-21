@@ -28,7 +28,7 @@ class ShowsController < ApplicationController
   end
 
   def show_params
-    params.require(:show).permit(:name, :description,
+    params.require(:show).permit(:name, :description, :keywords,
                                  :main_image, :main_image_cache, :remote_main_image,
                                  :slider_image, :slider_image_cache, :remote_slider_image,
                                  {:user_ids => []}

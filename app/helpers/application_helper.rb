@@ -27,4 +27,8 @@ module ApplicationHelper
   def standard_keywords
     ['marijuana', 'mmj']
   end
+
+  def standard_slider_image_label
+    "Slider Image <small>images should be 300 x 900</small>".html_safe
+  end
 end

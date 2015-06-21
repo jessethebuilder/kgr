@@ -31,9 +31,18 @@
     </div><!-- col -->
   </div><!-- row -->
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :keywords, class: 'control-label' %><small>separate with commas</small>
+        <%= f.text_field :keywords, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
   <%= image_select f, :main_image %><!-- row -->
 
-  <%= image_select f, :slider_image %><!-- row -->
+  <%= image_select f, :slider_image, alt_label: standard_slider_image_label %><!-- row -->
 
   <div class="row">
     <div class="col-md-4">

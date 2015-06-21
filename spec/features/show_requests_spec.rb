@@ -15,6 +15,24 @@ describe 'Show Requests', type: :feature do
       expect{ click_button 'Publish' }.to change{ Show.count }.by(1)
     end
 
+    it 'should accept :keywords' do
+      keywords = Faker::Lorem.words(word_count = Random.rand(1..100)).join(', ')
+      min
+      fill_in 'Keywords', :with => keywords
+      click_button 'Save Draft'
+
+      Show.last.keywords.should == keywords
+    end
+
+    it 'should accept :description' do
+      des = Faker::Lorem.paragraphs(paragraph_count = Random.rand(1..15)).join('<br>')
+      min
+      fill_in 'Description', with: des
+      click_button 'Publish'
+
+      Show.last.description.should == des
+    end
+
     describe 'Adding Djs' do
       let!(:dj1){ create :dj }
       let!(:dj2){ create :dj }
