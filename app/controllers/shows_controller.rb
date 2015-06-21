@@ -1,4 +1,25 @@
 class ShowsController < ApplicationController
+  before_action :set_show, only: [:show, :edit, :update, :destroy]
+
+  def show
+
+  end
+
+  def new
+    @show = Show.new
+    render :new, layout: 'admin_form'
+  end
+
+  def create
+    @show = Show.new(show_params)
+
+    if @show.save
+      @show.commit = parse_commit
+      redirect_to @show, notice: 'Show was successfully created.'
+    else
+      render :new, layout: 'admin_form'
+    end
+  end
 
   private
 

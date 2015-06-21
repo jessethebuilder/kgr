@@ -24,14 +24,9 @@
       <%= image_tag @dj.head_shot.url(:medium), class: 'article_image' %>
     <% end if @dj.head_shot? %>
 
-    <% unless @dj.show.nil? -%>
-
-      <h4><small>Host of </small><%= @dj.show.name.to_s %></h4>
-      <well>
-        <%= @dj.show.description.to_s.html_safe %>
-      </well>
-      <h4>Bio</h4>
-      <%= @dj.bio.to_s.html_safe %>
+    <% @dj.user.shows.each do |show| -%>
+      <h3>Host of</h3>
+      <%= render :partial => 'shows/show', locals: {:show => show} %>
     <% end -%>
   </div>
 

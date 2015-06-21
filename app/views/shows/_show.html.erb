@@ -1,0 +1,12 @@
+<div class="show article">
+  <h4><%= show.name %></h4>
+  <div class="article content">
+    <% if show.main_image? -%>
+      <%= link_to show.main_image.url, target: '_blank', class: "article_image" do %>
+        <%= image_tag show.main_image.url(:small) %>
+      <% end %>
+
+      <%= show.description.to_s.html_safe %>
+    <% end -%>
+  </div>
+</div>

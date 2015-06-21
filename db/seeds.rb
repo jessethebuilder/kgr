@@ -15,6 +15,13 @@ u = User.create!(:email => 'user@test.com', password: 'lassiter')
   d.show = Show.new :name => Faker::Company.catch_phrase.titlecase, :description => Faker::Lorem.sentences(sentence_count = Random.rand(1..10)).join('. ')
 
   d.save!
+
+  d.publish
+
+  2.times do
+    s = Show.create! :name => Faker::Business.name, description: Faker::Lorem.sentences(sentence_count = 4)
+    d.user.shows << s
+  end
 end
 
 5.times do
@@ -33,6 +40,8 @@ end
   dj_ids.each{ |d| e.djs_attending << d }
 
   e.save!
+
+  e.publish
 end
 
 6.times do
@@ -45,6 +54,8 @@ end
   n.main_news_story_image = File.new(fn)
 
   n.save!
+
+  n.publish
 end
 
 gal = Gallery.create! :name => 'Gallery'

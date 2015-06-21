@@ -14,10 +14,11 @@
 
 <div id="news_story" class="article">
   <div class="article_content">
-    <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
-      <%= image_tag @news_story.main_news_story_image.url(:medium), class: 'article_image' %>
-    <% end %>
-
+    <% if @news_story.main_news_story_image? -%>
+      <%= link_to @news_story.main_news_story_image.url, target: '_blank' do %>
+        <%= image_tag @news_story.main_news_story_image.url(:medium), class: 'article_image' %>
+      <% end %>
+    <% end -%>
 
     <div>
       <%= @news_story.content.to_s.html_safe %>

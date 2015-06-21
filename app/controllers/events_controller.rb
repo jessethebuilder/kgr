@@ -86,5 +86,17 @@ class EventsController < ApplicationController
      )
   end
 
+  def parse_commit
+    #for SaveDraftArchiveDelete
+    case params[:commit]
+      when 'Save Draft'
+        :draft
+      when 'Publish'
+        :publish
+      when 'Archive'
+        :archive
+    end
+  end
+
 
 end

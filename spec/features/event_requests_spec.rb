@@ -107,6 +107,7 @@ describe 'Event Requests' do
       let!(:dj){ create(:dj) }
       let!(:dj2){ create(:dj) }
 
+
       specify "should be able to add a dj attending to an event with the click box" do
         visit "/events/#{event.to_param}/edit"
         check dj.name

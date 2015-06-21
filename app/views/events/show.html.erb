@@ -1,7 +1,7 @@
-<% head_info(@event.name, @event.description, @event.main_image.url, 'article', 'Killer Green Radio', event_path(@event),
+<% head_info(@event.name, @event.description.to_s.html_safe, @event.main_image.url, 'article', 'Killer Green Radio', event_path(@event),
              keywords: @event.keywords) %>
 
-<%= quick_options ['Edit', edit_event_path(@event)] %>
+<%= quick_options ['Edit', edit_event_path(@event)] if user_is_admin? %>
 
 <h1>
   <%= @event.name %>
@@ -9,6 +9,12 @@
     <small><%= @event.publication_status %></small>
   <% end -%>
 </h1>
+
+
+<div>
+  <%= render :partial => 'parts/social_networking/share_on_social_networking' %>
+</div>
+
 
 <div id="event" class="article">
 
@@ -37,17 +43,7 @@
 <% content_for :side_bar do %>
   <% unless @event.djs_attending.empty? -%>
     <h4>Meet!</h4>
-
-    <ul id="djs_attending">
-      <% @event.djs_attending.each do |dj| -%>
-        <li>
-          <%= link_to dj do %>
-            <%= image_tag dj.head_shot.url(:small)%>
-            <%= dj.name %>
-        <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <%= render partial: 'djs/list', locals: {djs: @event.djs_attending} %>
   <% end -%>
 
 

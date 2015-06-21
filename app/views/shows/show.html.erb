@@ -1,0 +1,50 @@
+<% head_info(@show.name, @show.description.to_s.html_safe, @show.main_image.url, 'article', 'Killer Green Radio', show_url(@show),
+             keywords: @show.keywords) %>
+
+<%= quick_options ['Edit', edit_show_path(@show)] if user_is_admin? %>
+
+<% if @show.slider_image? -%>
+  <div class="row">
+    <div class="col-md-12">
+      <%= image_tag @show.slider_image.url(:large) %>
+    </div>
+  </div>
+<% end %>
+
+<h1>
+  <%= @show.name %>
+  <% if user_is_admin? -%>
+    <small><%= @show.publication_status %></small>
+  <% end -%>
+</h1>
+
+
+<div>
+  <%= render :partial => 'parts/social_networking/share_on_social_networking' %>
+</div>
+
+
+
+<div id="show" class="article">
+  <div class="article_content">
+    <% if @show.main_image? -%>
+      <%= link_to @show.main_image.url, target: '_blank' do %>
+        <%= image_tag @show.main_image.url(:medium), class: 'article_image' %>
+      <% end %>
+    <% end -%>
+
+    <div>
+      <%= @show.description.to_s.html_safe %>
+    </div>
+  </div>
+
+  <div class="facebook_comments">
+    <%= facebook_comments(show_url(@show)) %>
+  </div>
+</div>
+
+<% content_for :side_bar do %>
+  <h4>Show Djs</h4>
+  <%= render partial: 'djs/list', locals: {djs: @show.djs} %>
+<% end %>
+

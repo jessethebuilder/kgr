@@ -1,0 +1,10 @@
+<ul id="dj_list">
+  <% djs.each do |dj| -%>
+    <li>
+      <%= link_to dj do %>
+        <%= image_tag dj.head_shot.url(:small)%>
+        <%= dj.name %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
