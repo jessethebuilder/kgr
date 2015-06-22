@@ -5,7 +5,6 @@ class Event < ActiveRecord::Base
 
   extend SaveDraftArchiveDelete
 
-
   has_one :address, as: :has_address
   accepts_nested_attributes_for :address
 
@@ -29,7 +28,7 @@ class Event < ActiveRecord::Base
   end
 
   before_save do
-    address.geocode
+    address.geocode unless Rails.env.test?
   end
 
   def starts_at

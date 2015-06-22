@@ -1,6 +1,8 @@
 class DjsController < ApplicationController
   before_action :set_dj, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_admin!, only: [:new, :edit]
+
   # GET /djs
   def index
     if user_is_admin?

@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy]
+  before_action :set_calendar_events, only: [:show, :index]
 
   def index
     if user_is_admin?
@@ -10,7 +11,6 @@ class ShowsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -51,6 +51,10 @@ class ShowsController < ApplicationController
 
   def set_show
     @show = Show.find(params[:id])
+  end
+
+  def set_calendar_events
+    @calendar_events = Event.published
   end
 
   def show_params

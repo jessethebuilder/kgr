@@ -21,7 +21,7 @@ $navbar-default-link-color: $font-dark;
 $navbar-default-link-hover-color: $link_hover_color;
 $navbar-default-bg: white;
 $navbar-default-border: solid 2px $font_light;
-$navbar-default-brand-hover-color: white;
+$navbar-default-brand-hover-color: $link-hover-color;
 
 #top_nav{
   background-color: rgba(0, 0, 0, 0);

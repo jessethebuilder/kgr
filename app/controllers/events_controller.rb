@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
   # GET /events/1
   def show
-    # @calendar_events = Event.all
+    @calendar_events = Event.published
   end
 
   # GET /events/new
