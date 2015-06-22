@@ -21,11 +21,11 @@ class GalleryImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_to_fit => [275, 275]
+    process :resize_and_pad => [275, 275]
   end
 
   version :small do
-    process :resize_to_fit => [150, 150]
+    process :resize_and_pad => [150, 150]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
