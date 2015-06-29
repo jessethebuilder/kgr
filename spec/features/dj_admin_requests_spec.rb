@@ -56,6 +56,30 @@ describe 'Dj Admin Requests', type: :feature do
       end
     end # Guest
   end # New
+
+  describe 'Create' do
+    before(:each) do
+      visit '/djs/new'
+      fill_in 'Name', with: Faker::Name.name
+      fill_in 'Email', with: Faker::Internet.email
+      click_button 'Publish'
+    end
+
+    context 'Admin' do
+      context 'Publishing a New Dj' do
+
+        specify 'After create, should render the show page' do
+          page.current_path.should == "/djs/#{Dj.last.slug}"
+        end
+
+        specify 'A user should be created along with the new Dj' do
+          Dj.last.user.should_not == nil
+        end
+
+      end
+    end
+
+  end # create
 end
 
 #

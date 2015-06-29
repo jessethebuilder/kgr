@@ -5,9 +5,9 @@ class Dj < ActiveRecord::Base
   extend SaveDraftArchiveDelete
 
   belongs_to :user
-
-  has_one :show
-  accepts_nested_attributes_for :show
+  #
+  # has_one :show
+  # accepts_nested_attributes_for :show
 
   use_farm_slugs
 
@@ -15,7 +15,7 @@ class Dj < ActiveRecord::Base
 
   mount_uploader :head_shot, HeadShotUploader, dependent: :destroy
 
-  before_save :find_or_build_user, on: :create
+  before_save :find_or_build_user
 
   #------------------ Methods ----------------------------
 
@@ -27,8 +27,10 @@ class Dj < ActiveRecord::Base
   private
 
   def find_or_build_user
-    u = find_user || build_user
-    self.user = u
+    unless self.user
+      u = find_user || build_user
+      self.user = u
+    end
   end
 
   def find_user

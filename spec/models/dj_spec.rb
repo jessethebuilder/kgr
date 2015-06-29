@@ -10,7 +10,7 @@ RSpec.describe Dj, type: :model do
   end
 
   describe 'Associations' do
-    it{ should have_one :show }
+    # it{ should have_one :show }
     it{ should belong_to :user }
   end
 
