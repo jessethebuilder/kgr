@@ -16,6 +16,7 @@ class Dj < ActiveRecord::Base
   mount_uploader :head_shot, HeadShotUploader, dependent: :destroy
 
   before_save :find_or_build_user
+  #todo validate it looks like an email address, or the user just won't save
 
   #------------------ Methods ----------------------------
 
