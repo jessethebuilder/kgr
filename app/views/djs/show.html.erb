@@ -24,6 +24,11 @@
       <%= image_tag @dj.head_shot.url(:medium), class: 'article_image' %>
     <% end if @dj.head_shot? %>
 
+    <h3>Bio</h3>
+    <div class="bio">
+      <%= @dj.bio.to_s.html_safe %>
+    </div>
+
     <% @dj.user.shows.each do |show| -%>
       <h3>Host of</h3>
       <%= render :partial => 'shows/show', locals: {:show => show} %>
@@ -41,5 +46,8 @@
 
 
 <script>
+//  $('.article_content').css('min-height', $('.article_content').find('.article_image').height());
+
+
   raiseAndLowerElement('.social_networking_links img');
 </script>
