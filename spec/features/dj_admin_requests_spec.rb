@@ -58,16 +58,17 @@ describe 'Dj Admin Requests', type: :feature do
   end # New
 
   describe 'Create' do
-    before(:each) do
-      visit '/djs/new'
-      fill_in 'Name', with: Faker::Name.name
-      fill_in 'Email', with: Faker::Internet.email
-      click_button 'Publish'
-    end
 
     context 'Admin' do
-      context 'Publishing a New Dj' do
+      before(:each) do
+        admin
+        visit '/djs/new'
+        fill_in 'Name', with: Faker::Name.name
+        fill_in 'Email', with: Faker::Internet.email
+        click_button 'Publish'
+      end
 
+      context 'Publishing a New Dj' do
         specify 'After create, should render the show page' do
           page.current_path.should == "/djs/#{Dj.last.slug}"
         end
@@ -78,7 +79,6 @@ describe 'Dj Admin Requests', type: :feature do
 
       end
     end
-
   end # create
 end
 

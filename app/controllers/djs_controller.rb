@@ -16,8 +16,7 @@ class DjsController < ApplicationController
 
   # GET /djs/1
   def show
-    #todo
-    # @calendar_events = @dj.user.events.published
+    @calendar_events = @dj.user.events.published
   end
 
   # GET /djs/new
