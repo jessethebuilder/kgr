@@ -24,11 +24,28 @@
         <%= yield %>
       </div><!-- main_content -->
 
-      <div class="col-md-4" id="side_content">
-        <div class="ad_slug text-center">
-          Buy some advertising space here!!!!
+      <div class="col-md-4" id="right_side_bar">
+        <div class="right_side_1">
+          <div class="ad_slug text-center">
+            <%= image_tag 'demo/420.gif', width: '100%' %>
+            Buy some advertising space here!!!!
+          </div>
         </div>
-        <%= content_for :side_bar %>
+        <div class="right_side_2">
+          <%= content_for :right_side_2 %>
+
+        </div>
+        <div class="right_side_3">
+          <%= content_for :right_side_3 %>
+        </div>
+        <div class="right_side_4">
+          <%= content_for :right_side_4 %>
+        </div>
+        <div class="right_side_5">
+          <%= content_for :right_side_5 %>
+        </div>
+
+        <%#= content_for :side_bar %>
       </div><!-- side_content -->
     </div><!-- content row -->
   </div><!-- content_container -->

@@ -34,6 +34,6 @@
 <% head_info(@news_story.title, @news_story.excerpt, @news_story.main_news_story_image_url(:large), 'article', 'killergreenradio.com',
              news_story_url(@news_story), keywords: @news_story.keywords) %>
 
-<% content_for :side_bar do %>
+<% content_for :right_side_2 do %>
   <%= render :partial => 'events/embedded_monthly' %>
 <% end %>

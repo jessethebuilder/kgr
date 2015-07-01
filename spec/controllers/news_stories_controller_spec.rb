@@ -37,6 +37,20 @@ describe NewsStoriesController, type: :controller do
         get :index, {}, valid_session
         assigns(:news_stories).count.should == 1
       end
+
+      it 'orders NewsStories based on updated_at' do
+        first_story = create(:published_story)
+        second_story = create(:published_story)
+
+        get :index, {}, valid_session
+        assigns(:news_stories).first.should == second_story
+
+        first_story.title = 'New Title'
+        first_story.save!
+
+        get :index, {}, valid_session
+        assigns(:news_stories).first.should == first_story
+      end
     end
   end
 

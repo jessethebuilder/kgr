@@ -31,7 +31,7 @@
       <div class="col-sm-4 footer_cell middle"></div><!-- col -->
       <div class="col-sm-4 footer_cell last" style="padding-top: 120px;">
         Web design by &nbsp;
-        <%= link_to 'http://anysoft.us', target: '_blank' do %>
+        <%= link_to 'http://anysoft.us', class: 'web_designer_logo', target: '_blank' do %>
           <%= image_tag 'logos/vendor/anysoft.png', height: '50px' %>
         <% end %>
       </div><!-- col -->
@@ -39,6 +39,10 @@
   </div>
 
 </div>
+
+<script>
+  raiseAndLowerElement('.footer_cell.last img');
+</script>
 
 <!--<div class="footer_foot container-fluid">-->
   <%#= image_tag 'parts/fm_bottom.png' %>

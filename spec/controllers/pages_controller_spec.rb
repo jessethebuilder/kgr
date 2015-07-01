@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
+  let(:valid_session){ {} }
 
   describe "GET #home" do
     it "returns http success" do
@@ -22,13 +23,27 @@ RSpec.describe PagesController, type: :controller do
         assigns(:news_stories).include?(ns_draft).should == false
       end
 
-      it 'should assign only the first 6 published news stories' do
+      it 'should assign only the first 4 published news stories' do
         7.times do
           create(:news_story, published: true)
         end
 
         get :home
         assigns(:news_stories).count.should == 4
+      end
+
+      it 'orders NewsStories based on updated_at' do
+        first_story = create(:published_story)
+        second_story = create(:published_story)
+
+        get :home, {}, valid_session
+        assigns(:news_stories).first.should == second_story
+
+        first_story.title = 'New Title'
+        first_story.save!
+
+        get :home, {}, valid_session
+        assigns(:news_stories).first.should == first_story
       end
     end
   end

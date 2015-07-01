@@ -11,9 +11,9 @@ class NewsStoriesController < ApplicationController
 
   def index
     if user_is_admin?
-      @news_stories = NewsStory.all
+      @news_stories = NewsStory.all.order('updated_at DESC')
     else
-      @news_stories = NewsStory.published
+      @news_stories = NewsStory.published.order('updated_at DESC')
     end
 
     @calendar_events = Event.published

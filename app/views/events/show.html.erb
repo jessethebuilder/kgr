@@ -40,12 +40,14 @@
   </div>
 </div>
 
-<% content_for :side_bar do %>
+<% content_for :right_side_2 do %>
   <% unless @event.djs_attending.empty? -%>
     <h4>Meet!</h4>
     <%= render partial: 'djs/list', locals: {djs: @event.djs_attending} %>
   <% end -%>
+<% end -%>
 
+<% content_for :right_side_3 do %>
   <% if @event.facebook_event_link -%>
     <h4>RSVP on
       <%= link_to @event.facebook_event_link do %>

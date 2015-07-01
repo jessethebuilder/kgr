@@ -28,6 +28,10 @@ FactoryGirl.define do
 
   factory :news_story do
     title { Faker::Company.bs.titlecase }
+
+    factory :published_story do
+      published true
+    end
   end
 
   factory :user do

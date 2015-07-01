@@ -1,11 +1,11 @@
 <h3>Stories and news</h3>
-<%= render partial: 'news_stories/list' %>
-<h5><%= link_to 'more stories >>', news_stories_path, class: 'pull-right' %></h5>
 
-
-
-
-
+<div class="recent_news_stories">
+  <%= render partial: 'news_stories/list' %>
+  <% if @show_more_stories_link -%>
+    <h5><%= link_to 'more stories >>', news_stories_path, class: 'pull-right' %></h5>
+  <% end -%>
+</div>
 
 
 <% head_info('Killer Green Radio', 'Killer Green Radio Home Page', image_url('logos/header_logo.png'),
@@ -34,10 +34,11 @@
   <!--</div>-->
 <% end %>
 
-<% content_for :side_bar do %>
-
+<% content_for :right_side_2 do %>
   <%= render :partial => 'events/embedded_monthly' %>
+<% end %>
 
+<% content_for :right_side_3 do %>
   <%= render :partial => 'parts/on_the_web_widget' %>
 <% end %>
 
