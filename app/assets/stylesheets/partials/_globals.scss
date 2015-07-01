@@ -9,7 +9,11 @@
 //------- body ---
 body{
 //  background-color: #0e4e00;
-  background-image: image-url('backgrounds/fm3_background.jpg')
+//  background-image: image-url('backgrounds/fm3_background.jpg')
+  background-image: image-url('backgrounds/mj_pills_bg.jpg');
+  background-color: $main_bg_color;
+  background-position: top;
+  background-repeat: no-repeat;
 }
 
 //-------- .content_block ----
